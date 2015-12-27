@@ -1,0 +1,82 @@
+
+body span,p,a{
+	font-family: Courier, "Courier New", monospace ;
+	font-size: 16px;	
+}
+
+.wx-tag{
+	border-left: 2px solid black;
+	padding-left: 8px;	
+}
+
+.wx-p{
+	line-height: 40px;
+}
+
+.wx-one-li{
+	width: 158px;
+	height: 34px;
+}
+
+.wx-two-li{
+	position: relative;
+}
+
+.wx-two-li a{
+	text-align: center !important;
+}
+
+.wx-three-ul{
+	display: none;
+	position: absolute;
+	width: 158px;
+	top: -6px;
+	left: 160px;
+	background: white;
+	border: 1px solid #d4d4d4;
+	border-radius: 5px;
+	padding:5px 0px;
+	/*box-shadow: 5px 5px 2px #888888;*/
+}
+
+.wx-two-li:hover .wx-three-ul{
+	display: block;
+}
+
+
+/*数据表格*/
+#wx-table thead tr{
+	background: #1896ca;
+}
+
+#wx-table tbody tr a{
+	border: 1px solid red;
+	border-radius: 30px;
+}
+
+#wx-table tbody tr a:hover{
+	background:red;
+	color: white;
+}
+
+
+/*表格信息*/
+.wx-caption{
+	font-family:Microsoft JhengHei,SimSun,KaiTi,FangSong,Microsoft YaHei;
+	font-size: 14px;
+	font-weight: 600;
+	padding-left: 5px;
+	height: 10px;
+	border-left: 2px solid black;	
+}
+
+.wx-tr{
+	background: #AFEEEE!important;
+}
+
+.wx-money{
+	color: red;
+}
+
+
+

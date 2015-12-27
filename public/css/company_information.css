@@ -1,0 +1,40 @@
+.wx-p{
+	border-left: 2px solid black;
+	padding-left: 10px;
+}
+/*提醒*为必填*/
+.wx-waring p span{
+	font-size: 18px;
+	text-align: center;
+}
+
+.wx-waring p{
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.wx-comy_infor{
+	padding-top: 15px;
+	background:#F5F5F5;
+}
+
+.wx-form_p .form-group  span{
+	color: red;
+}
+
+.wx-form_p .col-md-1 p{
+	color: red;
+}
+
+.wx-photo_id  p{
+	text-align: center;
+}
+
+.wx-photo_id  span{
+	color: red;
+}
+
+/*图片margin距离*/
+.wx-pic_show{
+	margin-bottom: 10px;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>一路新材</title>   
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--你自己的样式文件 -->
+    <link href="css/count_safe.css" rel="stylesheet">
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 引入页头插件 -->
+    <div id="wx-header"></div>
+    <div style="height:20px;"></div>
+    
+    <!-- 主体内容 -->
+    <div>
+        <div class="container wx-main">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="wx-p">我的办公室</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2 wx-a">
+                    <div id="wx-sideBar"></div>          
+                </div>
+                <!-- <div class="col-md-1"></div> -->
+                <div class="col-md-7">
+                    <!-- 内容 s -->
+                    <form class="form-horizontal" style="padding-top:50px;">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group" >
+                                    <label for="wx-password1" class="col-sm-3 control-label">原密码</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control wx-input" id="wx-password1" 
+                                        placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 wx-required">
+                                <!-- <p class="form-control-static">格式错误 &#44;6-16个字符 &#44;不支持空格&#33;</p> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group" >
+                                    <label for="wx-password2" class="col-sm-3 control-label">新密码</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control wx-input" id="wx-password2" 
+                                        placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 wx-required">
+                                <!-- <p class="form-control-static">格式错误 &#44;6-16个字符 &#44;不支持空格&#33;</p> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group" >
+                                    <label for="wx-password3" class="col-sm-3 control-label">新密码</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control wx-input" id="wx-password3" 
+                                        placeholder="Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 wx-required">
+                                <!-- <p class="form-control-static">格式错误 &#44;6-16个字符 &#44;不支持空格&#33;</p> -->
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button  class="btn btn-primary wx-registerSend">提交</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>           
+                    <!-- 内容e -->
+                </div>
+                <!-- <div class="col-md-2"></div> -->
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体内容 -->
+
+    <!-- 查询框end -->
+    <div style="height:20px;"></div>
+    <!-- 引入页尾插件 -->
+    <div id="wx-footer"></div>
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- 引入头文件 -->
+    <script src="js/header.js"></script>
+    <!-- 引入页尾文件 -->
+    <script src="js/footer.js"></script>
+    <!-- 引入页尾文件 -->
+    <script src="js/side_bar.js"></script>
+    <!-- 引入自己文件 -->
+    <script src="js/count_safe.js"></script>
+</body>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.wx-tag{
+	border-left: 2px solid black;
+	padding-left: 8px;	
+}
+
+.wx-warning{
+	margin: auto;
+	font-size: 18px;
+}
+
+.wx-warning span{
+	color: red;
+}

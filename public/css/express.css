@@ -1,0 +1,29 @@
+.wx-tag{
+	border-left: 2px solid black;
+	padding-left: 8px;	
+	font-size: 16px;
+}
+
+/*数据表格*/
+#wx-table thead tr{
+	background: #1896ca;
+}
+
+#wx-table tbody tr a{
+	border: 1px solid red;
+	border-radius: 30px;
+}
+
+#wx-table tbody tr a:hover{
+	background:red;
+	color: white;
+}
+
+
+.wx-tr{
+	background: #AFEEEE!important;
+}
+
+.wx-money{
+	color: red;
+}

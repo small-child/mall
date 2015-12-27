@@ -1,0 +1,13 @@
+.wx-footrBtn{
+	color: black;
+}
+
+.wx-a a:hover{
+	background: #1896ca;
+	color: white;
+}
+
+.wx-chinese{
+	color: white;
+	font-size:15px;
+}

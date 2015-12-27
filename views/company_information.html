@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>一路新材</title>   
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--你自己的样式文件 -->
+    <link href="css/company_information.css" rel="stylesheet">
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 引入页头插件 -->
+    <div id="wx-header"></div>
+    <div style="height:20px;"></div>
+    
+    <!-- 主体内容 -->
+    <div>
+        <div class="container wx-main">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="wx-p">我的办公室</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2 wx-a">
+                    <div id="wx-sideBar"></div>          
+                </div>
+                <div class="col-md-10" >
+                    <div class="row">
+                        <div class="col-md-12 wx-waring">
+                            <p>
+                                <span>温馨提示&#58;</span>带<span style="color:red;">*</span>为必填&#44;
+                                若不填写&#44;则无法完成交易&#33;
+                            </p>
+                        </div>
+                    </div>
+                    <form class="form-horizontal wx-form_p">
+                        <div class="wx-comy_infor">
+                            <!-- 第一行s -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-company_name" class="col-sm-4 control-label">
+                                            <span >*</span>公司全称
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-company_name" 
+                                          placeholder="请输入公司全称&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-address" class="col-sm-4 control-label">
+                                            <span>*</span>办公地址
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-address" 
+                                          placeholder="请输入办公地址&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                            </div>
+                            <!-- 第一行 e -->
+                            <!-- 第二行 s -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-telephone" class="col-sm-4 control-label">
+                                            <span>*</span>公司电话
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-telephone" 
+                                          placeholder="请输入公司电话&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-fax" class="col-sm-4 control-label">
+                                            公司传真
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control" id="wx-fax" 
+                                          placeholder="请输入公司传真&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                            </div>
+                            <!-- 第二行 e -->
+                            <!-- 第三行 s -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-legal_person" class="col-sm-4 control-label">
+                                            <span >*</span>法定代表人
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-legal_person" 
+                                          placeholder="请输入法定代表人&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-contact_person_id" class="col-sm-4 control-label">
+                                            <span >*</span>法人身份证
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-contact_person_id" 
+                                          placeholder="请输入法人身份证号&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                            </div>
+                            <!-- 第三行 e -->
+                            <!-- 第四行 s -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-agent" class="col-sm-4 control-label">
+                                            <span >*</span>委托代理人
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-agent" 
+                                          placeholder="请输入委托代理人&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-contact_phone" class="col-sm-4 control-label">
+                                            <span>*</span>代理人电话
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-contact_phone" 
+                                          placeholder="请输入代理人电话&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                            </div>
+                            <!-- 第四行 e -->
+                            <!-- 第五行 s -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-id" class="col-sm-4 control-label">
+                                            <span >*</span>代理人身份证
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-id" 
+                                          placeholder="请输入身份证&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-contact_email" class="col-sm-4 control-label">
+                                            代理人邮箱
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control" id="wx-contact_email" 
+                                          placeholder="请输入联系人邮箱&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                            </div>
+                            <!-- 第五行 e -->
+                            <!-- 第六行 s -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-bank" class="col-sm-4 control-label">
+                                            <span >*</span>公司开户银行
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-bank" 
+                                          placeholder="请输入开户银行&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-bank_num" class="col-sm-4 control-label">
+                                            <span>*</span>银行账户
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-bank_num" 
+                                          placeholder="请输入银行账户&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                            </div>
+                            <!-- 第六行 e -->
+                            <!-- 第七行 s -->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-taxpayer" class="col-sm-4 control-label">
+                                            <span >*</span>营业执照号
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control wx-input" id="wx-taxpayer" 
+                                          placeholder="请输入营业执照号&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 wx-required">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="wx-zip_code" class="col-sm-4 control-label">
+                                            邮政编码
+                                        </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control" id="wx-zip_code" 
+                                          placeholder="邮政编码&#33;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <!-- <p class="form-control-static">&radic;</p> -->
+                                </div>
+                            </div>
+                            <!-- 第七行 e -->
+                        </div>
+                    
+                    <div class="row" style="margin:15px 0px 0px 15px;">
+                        <div class="col-md-12 wx-waring">
+                            <p>
+                                <span>温馨提示&#58;</span>只可以上传<span style="color:red;">JPG</span>
+                                格式图片&#33;
+                            </p>
+                        </div>
+                    </div>
+                    <div style="background:#F5F5F5;padding:10px;">
+                        <div class="row wx-photo_id" >
+                        <div class="col-md-4 wx-pic_continer">
+                            <p><span>*</span>营业执照</p>
+                        </div>
+                        <div class="col-md-4 wx-pic_continer">
+                            <p><span>*</span>税务登记证</p>
+                        </div>
+                        <div class="col-md-4 wx-pic_continer">
+                            <p><span>*</span>组织结构代码证</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="wx-pic_show">
+                                <!-- <img src="picture/19a0539a6562a1f22106ad765743955c.jpg" style="width:100%;height:100%"> -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wx-pic_show"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wx-pic_show"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">                                       
+                                        <input type="file" accept="image/jpeg" class="wx-pic_in wx-input" id="wx-pic1">
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>                           
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">                                       
+                                        <input type="file" accept="image/jpeg" class="wx-pic_in wx-input" id="wx-pic2">
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">                                       
+                                        <input type="file" accept="image/jpeg" class="wx-pic_in wx-input" id="wx-pic3">
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row wx-photo_id" >
+                        <div class="col-md-4 wx-pic_continer">
+                            <p><span>*</span>开户许可证</p>
+                        </div>
+                        <div class="col-md-4 wx-pic_continer">
+                            <p><span>*</span>电子印章</p>
+                        </div>
+                        <div class="col-md-4 wx-pic_continer">
+                            <p>危化品许可证</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="wx-pic_show">
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wx-pic_show"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wx-pic_show"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">                                       
+                                        <input type="file" accept="image/jpeg" class="wx-pic_in wx-input" id="wx-pic4">
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>                           
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">                                       
+                                        <input type="file" accept="image/jpeg" class="wx-pic_in wx-input" id="wx-pic5">
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">                                       
+                                        <input type="file" accept="image/jpeg" class="wx-pic_in" id="wx-pic6">
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </form>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary wx-registerSend">确认发布</button>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体内容 -->
+
+    <!-- 查询框end -->
+    <div style="height:20px;"></div>
+    <!-- 引入页尾插件 -->
+    <div id="wx-footer"></div>
+  	<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+  	<script src="js/jquery-2.1.4.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- 引入头文件 -->
+    <script src="js/header.js"></script>
+    <!-- 引入页尾文件 -->
+    <script src="js/footer.js"></script>
+    <!-- 引入页尾文件 -->
+    <script src="js/side_bar.js"></script>
+    <!-- 引入自己文件 -->
+    <script src="js/company_information.js"></script>
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>一路新材</title>   
+    <!-- Bootstrap -->
+    <link href="../bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+		label{
+			color:#cc0055;
+			font-size: 18px;
+			font-family: "华文仿宋";
+		}
+        h4{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="background:#C0C0C0;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-left" style="color:#ee4433;">一路新材后台管理系统</h1>
+            </div>
+        </div>
+    </div>
+    <div style="height:10px;"></div>
+    <!-- 1.商品展示 s-->
+    <div class="container">
+        <div class="row" style="margin-top:10px;">
+            <div class="col-md-12" style="padding-left:0px;">
+                <h3 class="text-left">1.已有商品种类</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding-bottom:20px;">    	
+    	<div class="row" style="margin-bottom:20px;">
+    		<form class="form-horizontal">
+	    		<div class="col-md-4">
+	    			<label>商品大类</label>
+			      	<select class="form-control" id="wx-getBigtype">
+			         	<option>1</option>
+			         	<option>2</option>
+			         	<option>3</option>
+			         	<option>4</option>
+			         	<option>5</option>
+			      	</select>
+	    		</div>
+	    		<div class="col-md-4">
+	    			<label>商品小类</label>
+			      	<select class="form-control" id="wx-1-2">
+			         	<option>1</option>
+			         	<option>2</option>
+			         	<option>3</option>
+			         	<option>4</option>
+			         	<option>5</option>
+			      	</select>
+	    		</div>
+	    		<div class="col-md-4">
+	    			<label>商品小类</label>
+			      	<select class="form-control" id="wx-1-3">
+			         	<option>1</option>
+			         	<option>2</option>
+			         	<option>3</option>
+			         	<option>4</option>
+			         	<option>5</option>
+			      	</select>
+	    		</div>
+    		</form>
+    	</div>
+    </div>
+    <!-- 商品展示 e-->
+    <div style="height:20px;"></div>
+    <!-- 2.商品大类操作 s-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">2.商品大类操作</h3>               
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-typeWarning"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px 0px;">
+    	<div class="row">
+    		<form class="form-horizontal" action="javascript:void(0);">
+	    		<div class="col-md-5">
+	    			<div class="form-group">
+    					<label class="col-sm-3 control-label">商品大类</label>
+    					<div class="col-sm-7">
+      						<input type="text" class="form-control" id="wx-type2">
+    					</div>
+    					<div class="col-sm-2">
+    						<button class="btn btn-success" id="wx-add_type2">增加大类</button>					
+    					</div>
+  					</div>
+	    		</div>
+	    		<div class="col-md-1"></div>
+	    		<div class="col-md-5">
+	    			<div class="form-group">
+    					<label class="col-sm-3 control-label">商品大类</label>
+    					<div class="col-sm-7">
+					      	<select class="form-control" id="wx-delete_type2">
+					         	<option>1</option>
+					         	<option>2</option>
+					         	<option>3</option>
+					         	<option>4</option>
+					         	<option>5</option>
+					      	</select>
+    					</div>
+    					<div class="col-sm-2">
+    						<button class="btn btn-success" id="wx-delete_btn">删除大类</button>					
+    					</div>
+  					</div>
+	    		</div>
+	    		<div class="col-md-1"></div>
+    		</form>
+    	</div>
+    </div>
+    <!-- 商品大类操作 e-->
+    <div style="height:20px;"></div>
+    <!-- 3.商品小类 s-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">3.商品小类操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-3-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px 0px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品大类</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="wx-3-1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品小类</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="wx-3-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn-success" id="wx-3-3">增加小类</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品大类</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="wx-3-4">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">商品小类</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="wx-3-5">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn-success" id="wx-3-6">删除小类</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 商品小类 e-->
+    <div style="height:20px;"></div>
+    <!-- 4.商品型号 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">4.型号等级操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-4-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-3">
+                    <label>商品大类</label>
+                    <select class="form-control name" id="wx-4-1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>商品小类</label>
+                    <select class="form-control" id="wx-4-2">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>型号等级</label>
+                    <input type="text" class="form-control" id="wx-4-3">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-success" style="margin-top:10%;" id="wx-4-7">增加型号等级</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-3">
+                    <label>商品大类</label>
+                    <select class="form-control name" id="wx-4-4">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>商品小类</label>
+                    <select class="form-control" id="wx-4-5">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label>型号等级</label>
+                    <select class="form-control" id="wx-4-6">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-success" style="margin-top:10%;" id="wx-4-8">删除型号等级</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 商品型号 e -->
+    <div style="height:20px;"></div>
+    <!-- 5.品牌 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">5.商品品牌操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-5-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">商品品牌</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="wx-5-1">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-5-2">增加品牌</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">商品品牌</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="wx-5-3">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-5-4">删除品牌</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 品牌 e -->
+    <div style="height:20px;"></div>
+    <!-- 6.包装方式 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">6.包装方式操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-6-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">包装方式</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="wx-6-1">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-6-2">增加包装方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">包装方式</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="wx-6-3">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-6-4">删除包装方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 包装方式 e -->
+    <div style="height:20px;"></div>
+    <!-- 7.运输方式 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">7.运输方式操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-7-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">运输方式</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="wx-7-1">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-7-2">增加运输方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">运输方式</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="wx-7-3">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-7-4">删除运输方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 运输方式 e -->
+    <div style="height:20px;"></div>
+    <!-- 8.议价方式 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">8.议价方式操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-8-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">议价方式</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="wx-8-1">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-8-2">增加议价方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">议价方式</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="wx-8-3">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-8-4">删除议价方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 议价方式 e -->
+    <div style="height:20px;"></div>
+    <!-- 9.商品标准 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">9.商品标准操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-9-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">商品标准</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="wx-9-1">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-9-2">增加商品标准</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">商品标准</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="wx-9-3">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-9-4">删除商品标准</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 商品标准 e -->
+    <div style="height:20px;"></div>
+    <!--10. 交货方式 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="padding-left:0px;">
+                <h3 class="text-left">10.交货方式操作</h3>
+            </div>
+            <div class="col-md-2">
+                <h4 style="margin-top:14%" id="wx-10-0"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">交货方式</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="wx-10-1">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-10-2">增加交货方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">交货方式</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" id="wx-10-3">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success" id="wx-10-4">删除交货方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 交货方式 e -->
+    <div style="height:20px;"></div>
+    <!-- 付款方式 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left:0px;">
+                <h3 class="text-left">11.付款方式操作</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-3 control-label">付款方式</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="inputPassword">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success">增加付款方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-3 control-label">付款方式</label>
+                        <div class="col-sm-7">
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success">删除付款方式</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 付款方式 e -->
+    <div style="height:20px;"></div>
+    <!-- 单位 s -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left:0px;">
+                <h3 class="text-left">12.单位操作</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border:1px solid black;padding:20px;">
+        <div class="row">
+            <form class="form-horizontal" action="javascript:void(0);">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-3 control-label">单位</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="inputPassword">
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success">增加单位</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-3 control-label">单位</label>
+                        <div class="col-sm-7">
+                            <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-success">删除单位</button>                   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </form>
+        </div>
+    </div>
+    <!-- 单位 e -->
+    <div style="height:500px;"></div>
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- 引入自身的就是文件 -->
+    <script src="../admin_js/type.js"></script>
+</body>
+</html>
