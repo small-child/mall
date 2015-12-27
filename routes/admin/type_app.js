@@ -127,7 +127,6 @@ module.exports = function ( app ) {
     
     // 删除小类
     app.post('/admin/kind_delete',function  (req,res,next) {
-        // console.log(req.body);
         var bigtype = global.dbHelper.getModel('bigtype');
         var smalltype = global.dbHelper.getModel('smalltype');
         // 删除小类中包含的商品等级
@@ -178,7 +177,6 @@ module.exports = function ( app ) {
     /*4.型号等级操作*/
     // 添加型号等级
     app.post('/admin/rank',function  (req,res,next) {
-        console.log(req.body);
         var bigtype = global.dbHelper.getModel('bigtype');
         var smalltype = global.dbHelper.getModel('smalltype');
         var Rank = global.dbHelper.getModel('rank');
@@ -187,7 +185,6 @@ module.exports = function ( app ) {
                 console.log(error);
             }else if (doc[0]) {
                 // console.log("小类已经存在");
-                // console.log(doc);
                 // console.log(doc[0].smallType[0].small_id);
                 global.kind_id = doc[0].smallType[0].small_id;
                 smalltype.find({"_id":doc[0].smallType[0].small_id,"rank.name":req.body.rank},function (error, doc) {
@@ -213,7 +210,6 @@ module.exports = function ( app ) {
                                     } else {
                                         res.json(1);
                                         // console.log("小类更新成功 "); 
-                                        // console.log(doc);
                                     }
                                 })
                             }
@@ -227,7 +223,6 @@ module.exports = function ( app ) {
     })
     // 切换型号等级
     app.post('/admin/rank_change',function  (req,res,next) {
-        console.log(req.body);
         var bigtype = global.dbHelper.getModel('bigtype');
         var smalltype = global.dbHelper.getModel('smalltype');
         var Rank = global.dbHelper.getModel('rank');
@@ -273,7 +268,6 @@ module.exports = function ( app ) {
     
     // 删除型号等级
     app.post('/admin/rank_delete',function  (req,res,next) {
-        console.log(req.body);
         var bigtype = global.dbHelper.getModel('bigtype');
         var smalltype = global.dbHelper.getModel('smalltype');
         var Rank = global.dbHelper.getModel('rank');
@@ -282,7 +276,6 @@ module.exports = function ( app ) {
             if (error) {
                 console.log(error);
             }else if (doc[0]) {
-                // console.log(doc);
                 // console.log(doc[0].smallType[0].small_id);
                 smalltype.find({"_id":doc[0].smallType[0].small_id},{"rank":{"$elemMatch":{"name":req.body.rankName}},_id:0},function (error, doc) {
                     if (error) {
@@ -295,8 +288,7 @@ module.exports = function ( app ) {
                                 console.log(error);
                                 // console.log(0);
                             }else{
-                                // res.json(0);
-                                // console.log("kind delete");
+                                res.json(0);
                             }
                         });
                     } 
@@ -593,7 +585,6 @@ module.exports = function ( app ) {
     });
     // 删除交货方式
     app.delete('/admin/delivery_delete',function(req,res){
-        console.log(req.body)
         var delivery = global.dbHelper.getModel('delivery');
         delivery.remove({name:req.body.name},function (error, doc) {
             if (error) {
@@ -604,5 +595,94 @@ module.exports = function ( app ) {
         });
     });
 
+    /*11.付款方式操作*/
+    //增加付款方式
+    app.post('/admin/payment',function  (req,res,next) {
+        var payment = global.dbHelper.getModel('payment');
+        payment.findOne({name: req.body.name},{name:1,_id:0}, function (error, doc) {
+            if (error) {
+                console.log(error);
+            }else if (doc) {
+                res.json(1)
+            }else {
+                payment.create({
+                    name: req.body.name
+                }, function (error, doc) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        res.json(3)
+                    }
+                });
+            }
+        });
+    })
+    // 页面加载获取增交货方式付款方式
+    app.get('/admin/payment_data',function(req,res){
+        var payment = global.dbHelper.getModel('payment');
+        payment.find({},{name:1,_id:0}, function (error, doc) {
+            if (error) {
+                console.log(error);
+            }else{
+                res.json(doc);
+            }
+        });
+    });
+    // 删除付款方式
+    app.delete('/admin/payment_delete',function(req,res){
+        var payment = global.dbHelper.getModel('payment');
+        payment.remove({name:req.body.name},function (error, doc) {
+            if (error) {
+                console.log(error);
+            }else{
+                res.json(0);
+            }
+        });
+    });
+
+    /*12.单位操作*/
+    //增加单位
+    app.post('/admin/unit',function  (req,res,next) {
+        var unit = global.dbHelper.getModel('unit');
+        unit.findOne({name: req.body.name},{name:1,_id:0}, function (error, doc) {
+            if (error) {
+                console.log(error);
+            }else if (doc) {
+                res.json(1)
+            }else {
+                unit.create({
+                    name: req.body.name
+                }, function (error, doc) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        res.json(3)
+                    }
+                });
+            }
+        });
+    })
+    // 页面加载获取单位
+    app.get('/admin/unit_data',function(req,res){
+        var unit = global.dbHelper.getModel('unit');
+        unit.find({},{name:1,_id:0}, function (error, doc) {
+            if (error) {
+                console.log(error);
+            }else{
+                res.json(doc);
+            }
+        });
+    });
+    // 删除单位
+    app.delete('/admin/unit_delete',function(req,res){
+        var unit = global.dbHelper.getModel('unit');
+        unit.remove({name:req.body.name},function (error, doc) {
+            if (error) {
+                console.log(error);
+            }else{
+                res.json(0);
+            }
+        });
+    });
 
 }

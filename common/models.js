@@ -51,6 +51,10 @@ module.exports = {
         name:{type: String}
     },delivery:{//交货方式
         name:{type: String}
+    },payment:{//付款方式
+        name:{type: String}
+    },unit:{//单位
+        name:{type: String}
     },
     cart:{
         uId: { type: String },

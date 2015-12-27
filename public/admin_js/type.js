@@ -564,7 +564,95 @@ $(function () {
 		});
  	})
 
+ 	/*11.付款方式操作*/
+	// 增加付款方式
+	$('#wx-11-2').click(function  () {
+		if ($('#wx-11-1').val() == "") {
+			$('#wx-11-0').text('输入为空');
+		} else{
+			$.ajax({
+				url:'/admin/payment',
+				type:"POST",
+				dataType:"json",
+				data:{
+					name:$('#wx-11-1').val(),
+				},
+				success:function(data) {
+					if (data == 3) {
+						$('#wx-11-0').text('添加成功');
+					} else if (data == 1) {
+						$('#wx-11-0').text('已经存在');
+					};
+				}
+			});	
+		};		
+	})
+	// 获取付款方式
+	$.get("/admin/payment_data", function(data){
+	    var str = "";
+	    for (var i = 0; i < data.length; i++) {
+	    	str+="<option>"+data[i].name+"</option>";
+	    }
+	    $('#wx-11-3').html(str);        
+	});	
+	// 删除付款方式
+ 	$('#wx-11-4').click(function () {
+ 		$.ajax({
+			url: '/admin/payment_delete',
+			type: 'DELETE',
+			data:{name:$('#wx-11-3 option:selected').text()},
+			success: function(data) {
+				if (data == 0) {
+					$('#wx-11-0').text('删除成功');
+				};
+			}
+		});
+ 	})
 
+ 	/*12.单位操作*/
+	// 增加单位
+	$('#wx-12-2').click(function  () {
+		if ($('#wx-12-1').val() == "") {
+			$('#wx-12-0').text('输入为空');
+		} else{
+			$.ajax({
+				url:'/admin/unit',
+				type:"POST",
+				dataType:"json",
+				data:{
+					name:$('#wx-12-1').val(),
+				},
+				success:function(data) {
+					if (data == 3) {
+						$('#wx-12-0').text('添加成功');
+					} else if (data == 1) {
+						$('#wx-12-0').text('已经存在');
+					};
+				}
+			});	
+		};		
+	})
+	// 获取单位
+	$.get("/admin/unit_data", function(data){
+	    var str = "";
+	    for (var i = 0; i < data.length; i++) {
+	    	str+="<option>"+data[i].name+"</option>";
+	    }
+	    $('#wx-12-3').html(str);        
+	});	
+	// 删除单位
+ 	$('#wx-12-4').click(function () {
+ 		$.ajax({
+			url: '/admin/unit_delete',
+			type: 'DELETE',
+			data:{name:$('#wx-12-3 option:selected').text()},
+			success: function(data) {
+				if (data == 0) {
+					$('#wx-12-0').text('删除成功');
+				};
+			}
+		});
+ 	})
 
 
 })
