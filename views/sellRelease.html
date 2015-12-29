@@ -9,6 +9,9 @@
     <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
     <!--你自己的样式文件 -->
     <link href="css/sellRelease.css" rel="stylesheet"> 
+    <!-- date -->
+    <link href="date/css/laydate0.css" rel="stylesheet">
+    <link href="date/css/laydate1.css" rel="stylesheet">
     <!-- 轮动css央视引入结束 -->
     <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
     <!--[if lt IE 9]>
@@ -47,15 +50,15 @@
     <div style="margin-top:10px;">
       <form class="form-horizontal">
         <div class="container" style="background:#f3f3f3;padding-top:30px;padding-bottom:30px;">
-          <!-- s -->
           <div class="row">
+            <!-- 1.商品种类 -->
             <div class="col-md-5">
               <div class="form-group">
                 <label for="wx-kind" class="col-sm-4 control-label">
                   <span style="color:red;">*</span>商品种类&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-kind" autocomplete="off">
+                  <select class="form-control" id="wx-1" autocomplete="off">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -65,16 +68,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-1">
-              
-            </div>
+            <div class="col-md-1"></div>
+            <!-- 2. 商品小类-->
             <div class="col-md-5">
               <div class="form-group">
                 <label for="wx-type" class="col-sm-4 control-label">
                   <span style="color:red;">*</span>商品小类&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-type" autocomplete="off">
+                  <select class="form-control" id="wx-2" autocomplete="off">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -86,16 +88,15 @@
             </div>
             <div class="col-md-1"></div>
           </div>
-          <!-- e -->
-          <!-- s -->
           <div class="row">
+            <!-- 3.型号等级-->
             <div class="col-md-5">
               <div class="form-group">
                 <label for="wx-grade" class="col-sm-4 control-label">
                   <span style="color:red;">*</span>型号等级&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-grade" autocomplete="off">
+                  <select class="form-control" id="wx-3" autocomplete="off">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -106,60 +107,14 @@
               </div>
             </div>
             <div class="col-md-1"></div>
+            <!-- 4.包装方式 -->
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-brand" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>商品品牌&#58;
-                </label>
-                <div class="col-sm-8">
-                  <select class="form-control" id="wx-brand" autocomplete="off">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group" style="display:none;">
-                <label for="wx-selfBrand" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>自增品牌&#58;
-                </label>
-                <div class="col-sm-8">               
-                  <input type="text" class="form-control" id="wx-selfBrand" 
-                  placeholder="请输入需求量" autocomplete="off">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-          </div>
-          <!-- e -->
-          <!-- s -->
-          <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="wx-packing" class="col-sm-4 control-label">
+               <label class="col-sm-4 control-label">
                   <span style="color:red;">*</span>包装方式&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-packing" autocomplete="off">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="wx-pay" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>付款方式&#58;
-                </label>
-                <div class="col-sm-8">
-                  <select class="form-control" id="wx-pay" autocomplete="off">
+                  <select class="form-control" id="wx-4" autocomplete="off">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -171,16 +126,15 @@
             </div>
             <div class="col-md-1"></div>
           </div>
-          <!-- e -->
-          <!-- s -->
           <div class="row">
+            <!-- 5.商品品牌 -->
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-bargain" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>议价形式&#58;
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>商品品牌&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-bargain" autocomplete="off">
+                  <select class="form-control" id="wx-5-0" autocomplete="off">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -193,32 +147,27 @@
             <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-goods" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>交货方式&#58;
+                <label class="col-sm-4 control-label">
+                  <!-- <span style="color:red;">*</span>-->
+                  自增品牌&#58;
                 </label>
-                <div class="col-sm-8">
-                  <select class="form-control" id="wx-goods" autocomplete="off">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                <div class="col-sm-8">               
+                  <input type="text" class="form-control" id="wx-5-1" 
+                  placeholder="请输入品牌" autocomplete="off">
                 </div>
               </div>
             </div>
             <div class="col-md-1"></div>
           </div>
-          <!-- e -->
-          <!-- s -->
           <div class="row">
             <div class="col-md-5">
+              <!-- 6.单位-->
               <div class="form-group">
-                <label for="wx-unit" class="col-sm-4 control-label">
+                <label class="col-sm-4 control-label">
                   <span style="color:red;">*</span>单位&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-unit" autocomplete="off">
+                  <select class="form-control" id="wx-6" autocomplete="off">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -229,14 +178,20 @@
               </div>
             </div>
             <div class="col-md-1"></div>
+            <!-- 7.付款方式 -->
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-price" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>单价&#58;
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>付款方式&#58;
                 </label>
-                <div class="col-sm-8">               
-                  <input type="text" class="form-control" id="wx-price" 
-                  placeholder="请输入单位" autocomplete="off">
+                <div class="col-sm-8">
+                  <select class="form-control" id="wx-7" autocomplete="off">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -245,101 +200,164 @@
           <!-- e -->
           <!-- s -->
           <div class="row">
+            <!-- 8.议价形式 -->
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-stock" class="col-sm-4 control-label">
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>议价形式&#58;
+                </label>
+                <div class="col-sm-8">
+                  <select class="form-control" id="wx-8" autocomplete="off">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <!-- 9.交货方式 -->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>交货方式&#58;
+                </label>
+                <div class="col-sm-8">
+                  <select class="form-control" id="wx-9" autocomplete="off">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+          <div class="row">
+            <!-- 10.最低成交量 -->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>最低成交量&#58;
+                </label>
+                <div class="col-sm-8">               
+                  <input type="text" class="form-control wx-input" id="wx-10" 
+                  placeholder="请输入最低成交量" autocomplete="off">                
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1" style="padding-left:0px;"></div>
+            <!-- 11.单价 -->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>单价&#58;
+                </label>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <!-- <div class="input-group-addon">$</div> -->
+                    <input type="text" class="form-control wx-input" id="wx-11" placeholder="请输入单价">
+                    <div class="input-group-addon" style="color:red;">元</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1" style="padding-left:0px;"></div>
+          </div>
+          <div class="row">
+            <!-- 12.库存量 -->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
                   <span style="color:red;">*</span>库存量&#58;
                 </label>
                 <div class="col-sm-8">               
-                  <input type="text" class="form-control" id="wx-stock" 
+                  <input type="text" class="form-control wx-input" id="wx-12" 
                   placeholder="请输入需求量" autocomplete="off">
                 </div>
               </div>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-1" style="padding-left:0px;"></div>
+            <!-- 13.提货地点 -->
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-min-requirement" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>最低成交量&#58;
-                </label>
-                <div class="col-sm-8">               
-                  <input type="text" class="form-control" id="wx-min-requirement" 
-                  placeholder="请输入最低成交量" autocomplete="off">                
-                </div>
-              </div>
-            </div>
-            <div class="col-md-1"></div>
-          </div>
-          <!-- e -->
-          <hr style="background-color:#a4a4a4;height:1px;">
-          <!-- s -->
-          <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="wx-province" class="col-sm-4 control-label">
+                <label class="col-sm-4 control-label">
                   <span style="color:red;">*</span>提货地点&#58;
                 </label>
-                <div class="col-sm-4">
-                  <select class="form-control" id="wx-province" autocomplete="off">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>              
+                <div class="col-sm-8">               
+                  <input type="text" class="form-control wx-input" id="wx-13" 
+                  placeholder="请输入地址" autocomplete="off">                
                 </div>
-                <div class="col-sm-4">               
-                 <select class="form-control" id="wx-city" autocomplete="off">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>   
-                </div>
-              </div>            
+              </div>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-1" style="padding-left:0px;"></div>
+          </div>
+          <hr style="background-color:#a4a4a4;height:1px;">
+          <div class="row">
+            <!-- 14.交货时间 s-->
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-address" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>详细地址&#58;
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>交货时间&#58;
                 </label>
                 <div class="col-sm-8">               
-                  <input type="text" class="form-control" id="wx-address" 
-                  placeholder="请输入最低成交量" autocomplete="off">                
+                  <input type="text" class="form-control wx-input" id="wx-14-0"  
+                  placeholder="交货开始日期" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <!-- 16.挂单有效期 s-->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>挂单有效期&#58;
+                </label>
+                <div class="col-sm-8">               
+                  <input type="text" class="form-control wx-input" id="wx-16-0"  
+                  placeholder="挂单开始日期" autocomplete="off">
                 </div>
               </div>
             </div>
             <div class="col-md-1"></div>
           </div>
-          <!-- e -->
-          <!-- s -->
           <div class="row">
+            <!-- 14.交货时间 e-->
             <div class="col-md-5">
               <div class="form-group">
-                <label for="wx-startTime1" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>交货时间&#58;
-                </label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="wx-startTime1" 
-                  placeholder="交货开始日期" autocomplete="off">   
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">               
+                  <input type="text" class="form-control wx-input" id="wx-14-1"  
+                  placeholder="交货截止日期" autocomplete="off">
                 </div>
-                <div class="col-sm-4">               
-                 <input type="text" class="form-control" id="wx-endTime1" 
-                  placeholder="交货截止日期" autocomplete="off">   
-                </div>              
               </div>
             </div>
             <div class="col-md-1"></div>
+            <!-- 16.挂单有效期 e-->
             <div class="col-md-5">
-              <!-- 运输方式 s-->
               <div class="form-group">
-                <label for="wx-Transport" class="col-sm-4 control-label">
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-8">               
+                  <input type="text" class="form-control wx-input" id="wx-16-1"  
+                  placeholder="挂单截止日期" autocomplete="off">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+          <div class="row">
+            <!-- 15.运输方式 -->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
                   <span style="color:red;">*</span>运输方式&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-Transport" autocomplete="off">
+                  <select class="form-control" id="wx-15" autocomplete="off">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -348,81 +366,55 @@
                   </select>
                 </div>
               </div>
-              <!-- 运输方式 e-->
-            </div>
-            <div class="col-md-1"></div>
-          </div>
-          <!-- e -->
-         <!-- s -->
-         <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="wx-startTime" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>挂单有效期&#58;
-                </label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="wx-startTime" 
-                  placeholder="挂单开始日期" autocomplete="off">   
-                </div>
-                <div class="col-sm-4">               
-                 <input type="text" class="form-control" id="wx-endTime" 
-                  placeholder="挂单截止日期" autocomplete="off">   
-                </div>
-              </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5">
-              <!-- 商品标准 s -->
+              <!-- 17.商品标准 -->
               <div class="form-group">
-                <label for="wx-unit" class="col-sm-4 control-label">
+                <label class="col-sm-4 control-label">
                   <span style="color:red;">*</span>商品标准&#58;
                 </label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="wx-unit" autocomplete="off">
+                  <select class="form-control" id="wx-17" autocomplete="off">
                     <option>标准型</option>
                     <option>加强型</option>
                   </select>
                 </div>
               </div>
-              <!-- 商品标准 e -->
-              <!-- 当选择商品加强型的时候，才会出现-->
-              <div class="form-group" style="display:none;">
-                <label for="wx-strengthen" class="col-sm-4 control-label">
-                  <span style="color:red;">*</span>技术指标&#58;
-                </label>
-                <div class="col-sm-8">               
-                  <input type="file"  id="wx-strengthen" 
-                  placeholder="请输入最低成交量" autocomplete="off" accept="image/jpeg">                
-                </div>
-              </div>
-              <!-- 加强型结束 -->
-            </div>
-            <div class="col-md-1"></div>
-         </div>
-         <!-- e -->
-          <!-- s -->
-          <div class="row">
-            <div class="col-md-5"> 
-              <div class="form-group">
-                <label for="wx-remark" class="col-sm-4 control-label">备注&#58;
-                </label>
-                <div class="col-sm-8">               
-                  <textarea class="form-control" rows="6" placeholder="备注" 
-                  autocomplete="off" id="wx-remark"></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-              <div id="wx-standard-pic" style=""></div>
             </div>
             <div class="col-md-1"></div>
           </div>
-          <!-- e -->
+          <div class="row">
+            <!-- 18.备注  -->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">备注&#58;
+                </label>
+                <div class="col-sm-8">               
+                  <textarea class="form-control" rows="6" placeholder="备注" 
+                  autocomplete="off" id="wx-18"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <!-- 19.加强型图片 -->
+            <div class="col-md-5">
+              <div class="form-group" style="display:none;" id="wx-19">
+                <label class="col-sm-4 control-label">
+                  <span style="color:red;">*</span>技术指标&#58;
+                </label>
+                <div class="col-sm-8">               
+                  <input type="file"  class="wx-input" id="wx-19-0" autocomplete="off" accept="image/jpeg">
+                  <div id="wx-19-1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
           <div class="row" style="margin-top:20px;">
             <div class="col-md-5"></div>
             <div class="col-md-2">
-              <button type="button" class="btn btn-primary">确认发布</button>
+              <button type="button" class="btn btn-primary" id="wx-btn">确认发布</button>
             </div>
             <div class="col-md-5"></div>
           </div>
@@ -436,6 +428,8 @@
     <!-- 尾部文件引入结束 -->
     <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
     <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- date -->
+    <script src="date/js/laydate.dev.js"></script>
     <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
     <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <!-- 引入头文件 -->

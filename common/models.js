@@ -55,6 +55,29 @@ module.exports = {
         name:{type: String}
     },unit:{//单位
         name:{type: String}
+    },sell_release:{
+        uid:{ type: String },
+        type:{ type: String },
+        kind:{ type: String },
+        rank:{ type: String },
+        packing:{ type: String },
+        brand:{ type: String },
+        unit:{ type: String },
+        payment:{ type: String },
+        bargain:{ type: String },
+        delivery:{ type: String },
+        min_deal:{ type: Number },
+        unit_price:{ type: Number },
+        volume:{ type: Number },
+        jiaohuo_start:{ type: Date },
+        jiaohuo_end:{ type: Date },
+        guadan_start:{ type: Date },
+        guadan_end:{ type: Date },
+        transport:{ type: String },
+        standard:{ type: String },
+        file1:{ type: String },
+        remarks:{ type: String },
+        date:{ type: Date }
     },
     cart:{
         uId: { type: String },

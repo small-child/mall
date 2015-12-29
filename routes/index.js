@@ -8,9 +8,9 @@ module.exports = function ( app ) {
     require('./express_app.js')(app); 	    //物流
     require('./aboutUs_app.js')(app); 	    //关于我们
     require('./logout_app.js')(app);        //注销
-    require('./myoffice_app.js')(app);      //我的办公室-基本信息
-    require('./count_safe_app.js')(app);    //我的办公室-账户安全
-    require('./company_information_app.js')(app);//我的办公室-公司信息
+    require('./myoffice/myoffice_app.js')(app);      //我的办公室-基本信息
+    require('./myoffice/count_safe_app.js')(app);    //我的办公室-账户安全
+    require('./myoffice/company_information_app.js')(app);//我的办公室-公司信息
     require('./admin/admin_app.js')(app);    //后台管理-入口界面
     require('./admin/type_app.js')(app);    //后台管理-入口界面
 };

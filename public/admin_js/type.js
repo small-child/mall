@@ -291,7 +291,7 @@ $(function () {
 	})
 
 	/*5.商品品牌操作*/
-	// 商品大类增加
+	// 商品品牌增加
 	$('#wx-5-2').click(function  () {
 		if ($('#wx-5-1').val() == "") {
 			$('#wx-5-0').text('输入为空');
@@ -314,7 +314,7 @@ $(function () {
 		};		
 	})
 	
-	// 商品大类获取
+	// 商品品牌获取
 	$.get("/admin/brand_data", function(data){
 	    var str = "";
 	    // console.log(data)
@@ -324,7 +324,7 @@ $(function () {
 	    $('#wx-5-3').html(str);        
 	});	
 	
- 	// 商品大类删除
+ 	// 商品品牌删除
  	$('#wx-5-4').click(function () {
  		$.ajax({
 			url: '/admin/brand_delete',
@@ -339,7 +339,7 @@ $(function () {
  	})
 
 	/*6.包装方式操作*/
-	// 商品大类增加
+	// 包装方式增加
 	$('#wx-6-2').click(function  () {
 		if ($('#wx-6-1').val() == "") {
 			$('#wx-6-0').text('输入为空');
