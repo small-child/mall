@@ -2,6 +2,7 @@ module.exports = function ( app ) {
     require('./register_app.js')(app);      //注册
     require('./login_app.js')(app);         //登陆
     require('./index_app.js')(app);         //首页
+    require('./buy_app.js')(app);          //我要买
     require('./sell_app.js')(app);          //我要卖
     require('./sellRelease_app.js')(app);   //发布供应
     require('./quotation_app.js')(app);     //交易详情

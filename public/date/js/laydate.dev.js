@@ -48,7 +48,7 @@ Dates.use = function(lib, id){
     link.rel = 'stylesheet';
     link.href = Dates.getPath + lib + as[5];
     id && (link.id = id);
-    doc[tags]('head')[0].appendChild(link);
+    // doc[tags]('head')[0].appendChild(link);加载不到，太麻烦了
     link = null;
 };
 

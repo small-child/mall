@@ -81,6 +81,12 @@ $(function () {
         // alert(123);
     });
 
+    // 我要买
+    $('#wx-buy').click(function(){
+        // alert(123);
+        location.href='buy';
+    });
+
     // 我要卖
     $('#wx-sell').click(function(){
         // alert(123);

@@ -54,7 +54,6 @@ $(function(){
 					upwd:$('#wx-password1').val()
 				},
 				success:function(data) {
-					console.log(data);
 					if (data == 3) {
 						// alert("登陆成功");
 						location.href='index';
@@ -71,7 +70,6 @@ $(function(){
 								
 				}
 			})
-			
 		}
 		
 	})

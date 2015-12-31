@@ -4,47 +4,17 @@ body span,p,a{
 	font-size: 16px;	
 }
 
-.wx-tag{
-	border-left: 2px solid black;
-	padding-left: 8px;	
-}
-
-.wx-p{
-	line-height: 40px;
-}
-
-.wx-one-li{
-	width: 158px;
-	height: 34px;
-}
-
-.wx-two-li{
-	position: relative;
-}
-
-.wx-two-li a{
-	text-align: center !important;
-}
-
-.wx-three-ul{
-	display: none;
-	position: absolute;
-	width: 158px;
-	top: -6px;
-	left: 160px;
-	background: white;
-	border: 1px solid #d4d4d4;
-	border-radius: 5px;
-	padding:5px 0px;
-	/*box-shadow: 5px 5px 2px #888888;*/
-}
-
-.wx-two-li:hover .wx-three-ul{
-	display: block;
+.col-md-4{
+	padding-left: 0px;
 }
 
 
 /*数据表格*/
+
+#wx-table tr td:nth-child(1){
+	display: none;
+}
+
 #wx-table thead tr{
 	background: #1896ca;
 }

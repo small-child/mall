@@ -1,9 +1,9 @@
-#wx-page{
+.wx-page{
 	padding: 15px 20px;
 	text-align: left;
 	color: #ccc;
 }
-#wx-page a{
+.wx-page a{
 	display: inline-block;
 	color: #428bca;
 	display: inline-block;
@@ -15,11 +15,11 @@
 	border-radius: 4px;
 	vertical-align: middle;
 }
-#wx-page a:hover{
+.wx-page a:hover{
 	text-decoration: none;
 	border: 1px solid #428bca;
 }
-#wx-page span.current{
+.wx-page span.current{
 	display: inline-block;
 	height: 25px;
 	line-height: 25px;
@@ -31,7 +31,7 @@
 	border-radius: 4px;
 	vertical-align: middle;
 }
-#wx-page span.disabled{
+.wx-page span.disabled{
 	display: inline-block;
 	height: 25px;
 	line-height: 25px;
