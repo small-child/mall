@@ -39,6 +39,14 @@ $(function() {
         elem: '#wx-6'
     });
 
+
+    /*发布需求*/
+    $('#wx-8').click(function () {
+        location.href = "/buyRelease";
+    })
+   
+   
+
     // localStorage.type = $(this).text();
 
     /*1.商品种类*/
@@ -142,7 +150,7 @@ $(function() {
             str += "<td>"+data[i].unit+"</td>";
             str += "<td>"+date1+"至"+date2+"</td>";
             str += "<td>"+data[i].address+"</td>";
-            str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)' onclick='get_id();'>购买</a></td>";
+            str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)'>购买</a></td>";
             str = "<tr>"+str+"</tr>";
         };
         $('#wx-tbody').html(str);
@@ -170,7 +178,7 @@ $(function() {
                     str += "<td>"+data[i].unit+"</td>";
                     str += "<td>"+date1+"至"+date2+"</td>";
                     str += "<td>"+data[i].address+"</td>";
-                    str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)' onclick='get_id();'>购买</a></td>";
+                    str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)'>购买</a></td>";
                     str = "<tr>"+str+"</tr>";
                 };
                 $('#wx-tbody').html(str);
@@ -221,7 +229,7 @@ $(function() {
                     str += "<td>"+data[i].unit+"</td>";
                     str += "<td>"+date1+"至"+date2+"</td>";
                     str += "<td>"+data[i].address+"</td>";
-                    str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)' onclick='get_id();'>购买</a></td>";
+                    str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)'>购买</a></td>";
                     str = "<tr>"+str+"</tr>";
                 };
                 $('#wx-tbody').html(str);
@@ -311,7 +319,7 @@ $(function() {
                         str += "<td>"+data[i].unit+"</td>";
                         str += "<td>"+date1+"至"+date2+"</td>";
                         str += "<td>"+data[i].address+"</td>";
-                        str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)' onclick='get_id();'>购买</a></td>";
+                        str += "<td><a class='btn wx-buyGoods' href='javascript:void(0)'>购买</a></td>";
                         str = "<tr>"+str+"</tr>";
                     };
                     $('#wx-tbody').html(str);
@@ -321,8 +329,11 @@ $(function() {
     });
 
     /*当点击购买按钮时候，将该条信息的id保存起来*/
-    function get_id () {
-        console.log(123)
-    }
+    $(document).on('click','.wx-buyGoods',function(){
+        var id = $(this).parents('tr').find('td').first().text();
+        localStorage.buy_id = id;
+        location.href = "buyDetail";
+    })
 
+    
 }) 

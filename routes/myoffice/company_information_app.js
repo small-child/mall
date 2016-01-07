@@ -7,7 +7,6 @@ module.exports = function ( app ) {
         if(req.session.user){
             res.render('company_information');
         }else{
-        	// console.log(1);
             res.redirect('login');
         }
     });
@@ -30,7 +29,7 @@ module.exports = function ( app ) {
     });
 
 
-    var upload = multer({ dest:'public/picture/'});
+    var upload = multer({ dest:'public/picture/certification/'});
 
 	app.post('/company_information',upload, function (req, res, next) {
 

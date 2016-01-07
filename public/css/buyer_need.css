@@ -1,0 +1,26 @@
+.wx-p{
+	border-left: 2px solid black;
+	padding-left: 10px;
+}
+
+/*表格信息*/
+.wx-caption{
+	font-family:Microsoft JhengHei,SimSun,KaiTi,FangSong,Microsoft YaHei;
+	font-size: 14px;
+	font-weight: 600;
+	padding-left: 5px;
+	height: 10px;
+	border-left: 2px solid black;	
+}
+
+#wx-table thead tr{
+	background: #1896ca;
+}
+
+.wx-tr{
+	background: #AFEEEE!important;
+}
+
+.wx-money{
+	color: red;
+}

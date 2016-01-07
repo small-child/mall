@@ -71,7 +71,6 @@ module.exports = function ( app ) {
                         // res.json('用户名创建成功！');
                         // console.log(3);
                         res.json(3);
-                        res.redirect('login');
                     }
                 });
             }

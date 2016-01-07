@@ -12,9 +12,8 @@ global.dbHelper = require( './common/dbHelper' );
 global.db = mongoose.connect("mongodb://127.0.0.1:27017/ylxc");
 
 // global.bigtype = "0";	//商品大类保存下来
-global.smallarray = []; //保存商品小类
-global.kind_id = 0;        //商品小类id
-
+// global.smallarray = []; 	//保存商品小类
+global.kind_id = 0;         //商品小类id
 app.use(session({
     secret:'secret',
     cookie:{

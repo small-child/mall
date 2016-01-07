@@ -1,0 +1,22 @@
+.wx-red{
+	color: red;
+}
+
+.wx-warning{
+	font-size: 16px;
+	font-weight: 500;
+	color: red;
+}
+
+/*聊天框抬头*/
+.wx-chat_title{
+	background: #20B2AA;
+	color: red;
+}
+
+/*聊天框*/
+.wx-frame{
+	height: 200px;
+	border: 1px solid #20B2AA;
+	overflow: scroll;
+}

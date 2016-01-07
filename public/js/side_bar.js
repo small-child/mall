@@ -20,9 +20,39 @@ $(function() {
 		location.href='count_safe';
 	});
 
-	// 账户安全
+	// 公司信息
 	$('.wx-ullist:eq(0) li:eq(2) a').click(function(){
 		location.href='company_information';
+	});
+
+	// 买家-我的需求
+	$('.wx-ullist:eq(1) li:eq(0) a').click(function(){
+		location.href='/buyer_need';
+	});
+
+	// 买家-我的关注
+	$('.wx-ullist:eq(1) li:eq(1) a').click(function(){
+		location.href='/buyer_attention';
+	});
+
+	// 买家-我的订单
+	$('.wx-ullist:eq(1) li:eq(2) a').click(function(){
+		location.href='/buyer_order';
+	});
+
+	// 卖家-我的供应
+	$('.wx-ullist:eq(2) li:eq(0) a').click(function(){
+		location.href='/seller_supply';
+	});
+
+	// 卖家-我的关注
+	$('.wx-ullist:eq(2) li:eq(1) a').click(function(){
+		location.href='/seller_attention';
+	});
+
+	// 卖家-我的订单
+	$('.wx-ullist:eq(2) li:eq(2) a').click(function(){
+		location.href='/seller_order';
 	});
 
 })

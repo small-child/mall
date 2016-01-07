@@ -116,7 +116,6 @@ $(function(){
 
 	//提交，最终验证。
     $('.wx-registerSend').click(function(){
-		 
 		$(".wx-input").trigger('blur');			
 		var numError = $('form .onError').length;		
 		if(numError){				
@@ -130,8 +129,8 @@ $(function(){
 				data:{
 					uname:$('#wx-user').val(),
 					upwd:$('#wx-password1').val(),
-					email:$('#wx-inputEmai').val(),
-					tag:"failure"
+					email:$('#wx-inputEmai').val()
+					// tag:"failure"
 				},
 				success:function(data) {
 					if (data == 1) {

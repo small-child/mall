@@ -35,11 +35,9 @@ module.exports = function ( app ) {
 
     var timestring = time.toString();
 
-    var upload = multer({ dest:'public/picture/'+timestring});
+    var upload = multer({ dest:'public/picture/sellRelease/'});
     
     app.post('/sellRelease',upload,function(req,res){
-        // console.log(req.session.user);
-        console.log(timestring);
         if (req.body.remarks) {
             remarks = req.body.remarks;
         }else {
@@ -50,7 +48,6 @@ module.exports = function ( app ) {
         }else {
             file = null;
         }
-        
         if (req.session.user) {
             var sell_release = global.dbHelper.getModel('sell_release');
             var company = global.dbHelper.getModel('company');
@@ -58,10 +55,10 @@ module.exports = function ( app ) {
                 if (err) {
                     console.log(err);
                 } else{
-                    console.log(docs[0].name);
-                    /*1111111111111111*/
                     sell_release.create({
-                        uid: req.session.user.name,
+                        uid: req.session.user._id,
+                        uname:req.session.user.name,
+                        email:req.session.user.email,
                         type: req.body.type,
                         kind: req.body.kind,
                         rank: req.body.rank,
@@ -94,14 +91,12 @@ module.exports = function ( app ) {
                             res.json(0);
                         }
                     })
-                    /*111111111111111111*/
                 };
             })
             
         } else{
             res.redirect('login');
-        };
-       
+        };      
 
     });
 

@@ -3,7 +3,6 @@ module.exports = function ( app ) {
         req.session.user = null;
         req.session.error = null;
         res.redirect('login');
-        // console.log(123);
     });
 }
 

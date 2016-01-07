@@ -55,8 +55,39 @@ module.exports = {
         name:{type: String}
     },unit:{//单位
         name:{type: String}
-    },sell_release:{
+    },buy_release:{//买家，发布需求信息
         uid:{ type: String },
+        uname:{ type: String },
+        uemail:{ type: String },
+        company:{ type: String },
+        hasBuy:{type:Number,default:0},
+        type:{ type: String },
+        kind:{ type: String },
+        payment:{ type: String },
+        packing:{ type: String },
+        rank:{ type: String },
+        brand:{ type: String },
+        bargain:{ type: String },
+        delivery:{ type: String },
+        unit:{ type: String },
+        transport:{ type: String },
+        needVolume:{ type: Number },
+        min_deal:{ type: Number },
+        unit_price:{ type: Number },
+        address:{ type: String },
+        jiaohuo_start:{ type: Date },
+        jiaohuo_end:{ type: Date },
+        guadan_start:{ type: Date },
+        guadan_end:{ type: Date },
+        remarks:{ type: String },
+        file1:{ type: String },
+        date:{ type: Date }
+    },buy_attention:{//买家关注
+        uid:{ type: String },
+        buy_id:{ type: String }
+    },sell_release:{//卖家，发布供应信息
+        uid:{ type: String },
+        uname:{ type: String },
         type:{ type: String },
         kind:{ type: String },
         rank:{ type: String },
@@ -80,9 +111,30 @@ module.exports = {
         company:{ type: String },
         file1:{ type: String },
         remarks:{ type: String },
-        date:{ type: Date }
-    },
-    cart:{
+        date:{ type: Date },
+        email:{ type: String }
+    },sell_attention:{//买家关注
+        uid:{ type: String },
+        sell_id:{ type: String }
+    },order:{//订单
+        goods_id:{ type: String },
+        buyer_id:{ type: String },
+        seller_id:{ type: String },
+        goods_kind:{ type: String },
+        sell_company:{ type: String },
+        buy_company:{ type: String },
+        volume:{ type: Number },
+        unit_price:{ type: Number },
+        unit_price1:{ type: Number,default:0 },
+        volume1:{ type: Number,default:0 },
+        unit_price2:{ type: Number,default:0 },
+        volume2:{ type: Number,default:0 },
+        order_status:{ type: String,default:"洽谈中" },
+        role:{ type: Number },   //0为buy_release，1为sell_release
+        remarks:{ type: String },
+        over:{ type: Number,default:0 },//0为未完成，1为订单已经完成，即作为合同
+        order_date:{ type: Date }
+    },cart:{
         uId: { type: String },
         cId: { type: String },
         cName: { type: String },

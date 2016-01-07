@@ -318,7 +318,7 @@ $(function(){
 		$(".wx-input").trigger('blur');			
 		var numError = $('form .onError').length;	
 		if(numError){				
-			alert("登陆失败");
+			alert("提交失败");
 			return false;	
 		}else{ 	
 			var fd = new FormData();
