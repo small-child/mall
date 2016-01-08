@@ -21,7 +21,7 @@
     <div style="height:20px;"></div>
     <!-- 主体内容 -->
     <div>
-        <div class="container">
+        <div class="container" id="print">
             <div class="row">
                 <div class="col-md-12">
                     <p class="text-center wx-p">产品销售合同</p>
@@ -154,25 +154,23 @@
                     <div class="wx-three">
                         <span class="wx-blod">账号&#58;</span>
                         <span class="wx-underline" id="wx-24">123545353456535353</span>
-                    </div>
+                    </div>`
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2 col-md-offset-8" >
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-2">
+                <p id="wx-tishi" style="color:red;"></p>
+            </div>
+            <div class="col-md-2" >
                 <button type="button" class="btn btn-success" style="float:right;" id="wx-btn">同意签订合同</button>
             </div>
             <div class="col-md-1">
                 <button type="button" class="btn btn-info" id="wx-print">打印</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <p id="wx-tishi" style="color:red;"></p>
             </div>
         </div>
     </div>
@@ -185,6 +183,9 @@
     <div id="wx-footer"></div>
     <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
     <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- print -->
+    <script src="js/jquery.jqprint-0.3.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
     <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
     <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <!-- 引入头文件 -->

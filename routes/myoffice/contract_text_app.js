@@ -122,7 +122,7 @@ module.exports = function ( app ) {
 		            if (error) {
 		                console.log(error);		                
 		            }else{
-		                console.log("修改合同中buyTag");
+		                // console.log("修改合同中buyTag");
 		            }
 		        })
 		        /*判断对方是否为已签，若是已签，则修改合同的over为1，同时将发布信息的hasBuy和hasSell修改了*/
@@ -137,7 +137,7 @@ module.exports = function ( app ) {
 					            if (error) {
 					                console.log(error);
 					            }else{
-					                console.log("合同标示符修改成功");
+					                // console.log("合同标示符修改成功");
 					            }
 					        })
 					        /*同时将发布信息的hasBuy和hasSell修改了*/
@@ -145,9 +145,9 @@ module.exports = function ( app ) {
 			               		if (err) {
 			               			console.log(err);
 			               		} else{
-			               			console.log("订单信息被提取出来")
-			               			console.log(doc[0].role);
-			               			console.log(doc[0].volume1);
+			               			// console.log("订单信息被提取出来")
+			               			// console.log(doc[0].role);
+			               			// console.log(doc[0].volume1);
 			               			var goods_id = doc[0].goods_id;
 			               			var has0 = doc[0].volume1;
 			               			if (doc[0].role == 0) {//为买家发布信息时候
@@ -157,14 +157,14 @@ module.exports = function ( app ) {
 								       			console.log(err)
 								       		} else{
 								       			var has1 = doc[0].hasBuy + has0;
-								       			console.log("print has1:"+has1);
-								       			console.log(goods_id);
+								       			// console.log("print has1:"+has1);
+								       			// console.log(goods_id);
 								       			buy_release.update({"_id":goods_id},{$set:{"hasBuy":has1}},function (err,doc) {
 										       		if (err) {
 										       			console.log(err)
 										       		} else{
 										       			console.log(doc);
-										       			console.log("修改buy_release");
+										       			// console.log("修改buy_release");
 										       		}
 										       	})
 								       		}
@@ -181,7 +181,7 @@ module.exports = function ( app ) {
 										       		if (err) {
 										       			console.log(err)
 										       		} else{
-										       			console.log("修改sell_release");
+										       			// console.log("修改sell_release");
 										       		}
 										       	})
 								       		}
@@ -198,7 +198,7 @@ module.exports = function ( app ) {
 		            if (error) {
 		                console.log(error);		                
 		            }else{
-		                console.log("修改合同中sellTag");
+		                // console.log("修改合同中sellTag");
 		            }
 		        })
 		        /*000000000000000*/
@@ -213,7 +213,7 @@ module.exports = function ( app ) {
 					            if (error) {
 					                console.log(error);
 					            }else{
-					                console.log("合同标示符修改成功");
+					                // console.log("合同标示符修改成功");
 					            }
 					        })
 					        /*同时将发布信息的hasBuy和hasSell修改了*/
@@ -237,7 +237,7 @@ module.exports = function ( app ) {
 										       		if (err) {
 										       			console.log(err)
 										       		} else{
-										       			console.log("修改buy_release");
+										       			// console.log("修改buy_release");
 										       		}
 										       	})
 								       		}
@@ -254,7 +254,7 @@ module.exports = function ( app ) {
 										       		if (err) {
 										       			console.log(err)
 										       		} else{
-										       			console.log("修改sell_release");
+										       			// console.log("修改sell_release");
 										       		}
 										       	})
 								       		}
@@ -272,5 +272,70 @@ module.exports = function ( app ) {
         }
     })
 
+	/*同意签订合同,将合同需要信息上传上去*/
+	app.get('/contract_data5/:id',function(req,res){
+        if(req.session.user){//直接获取公司信息就可以了，前端已经确定是买方和卖方
+        	var contract = global.dbHelper.getModel('contract'); 
+           	contract.find({"_id":req.params.id},{"buyerTag":1,"sellerTag":1,"_id":0},function(err,doc) {
+           		if (err) {
+           			console.log(err);
+           		} else{
+           			res.json(doc);
+           		}
+           	})
+        }else{
+            res.redirect('login');
+        }
+    })
+
+    /*页面加载时获取买方信息*/
+    app.get('/contract_data6/:id',function(req,res){
+        if(req.session.user){//直接获取买方公司信息
+        	var contract = global.dbHelper.getModel('contract'); 
+           	contract.find({"_id":req.params.id},{"buyerId":1,"_id":0},function(err,doc) {
+           		if (err) {
+           			console.log(err);
+           		} else{
+           			// console.log(doc[0].buyerId);
+           			var company = global.dbHelper.getModel('company');
+		        	company.find({"uId":doc[0].buyerId},{"legal_person":1,"agent":1,"company_bank":1,"company_bankNum":1,
+		        	"picture5":1,_id:0},function (err,doc) {
+		        		if (err) {
+		        			console.log(err)
+		        		} else{
+		        			res.json(doc);
+		        		}
+		        	})
+           		}
+           	})
+        }else{
+            res.redirect('login');
+        }
+    })
+
+    /*页面加载时获取卖方信息*/
+    app.get('/contract_data7/:id',function(req,res){
+        if(req.session.user){//直接获取买方公司信息
+        	var contract = global.dbHelper.getModel('contract'); 
+           	contract.find({"_id":req.params.id},{"sellerId":1,"_id":0},function(err,doc) {
+           		if (err) {
+           			console.log(err);
+           		} else{
+           			// console.log(doc[0].sellerId);
+           			var company = global.dbHelper.getModel('company');
+		        	company.find({"uId":doc[0].sellerId},{"legal_person":1,"agent":1,"company_bank":1,"company_bankNum":1,
+		        	"picture5":1,_id:0},function (err,doc) {
+		        		if (err) {
+		        			console.log(err)
+		        		} else{
+		        			res.json(doc);
+		        		}
+		        	})
+           		}
+           	})
+        }else{
+            res.redirect('login');
+        }
+    })
 
 }

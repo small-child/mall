@@ -1,6 +1,10 @@
 $(function() {
 	// console.log(localStorage.contractId);
 	$('#wx-1').text(localStorage.contractId); //合同编号
+    /*print*/
+    $('#wx-print').click(function () {
+        $("#print").jqprint();
+    })    
 	Date.prototype.Format = function(fmt)   
     { //author: meizz   
       var o = {   
@@ -74,9 +78,37 @@ $(function() {
 
         /*修改contract和发布信息*/
         $.get("/contract_data4/"+role+"/"+localStorage.contractId, function(data){
-            console.log(data)
+            // console.log(data)
             $('#wx-tishi').text(data);
         })
+
+    })
+
+    /*合同签订完毕后，就直接插入信息*/
+    $.get("/contract_data5/"+localStorage.contractId, function(data){
+        // console.log(data[0]);
+        /*先获取买家信息*/
+        if (data[0].buyerTag == 1) {
+            $.get("/contract_data6/"+localStorage.contractId, function(data){
+                // console.log(data[0])
+                $('#wx-20').attr("src","picture/certification/"+data[0].picture5);
+                $('#wx-21').text(data[0].legal_person);
+                $('#wx-22').text(data[0].agent);
+                $('#wx-23').text(data[0].company_bank);
+                $('#wx-24').text(data[0].company_bankNum);
+            })
+        }
+        /*先获取买家信息*/
+        if (data[0].sellerTag == 1) {
+            $.get("/contract_data7/"+localStorage.contractId, function(data){
+                $('#wx-15').attr("src","picture/certification/"+data[0].picture5);
+                $('#wx-16').text(data[0].legal_person);
+                $('#wx-17').text(data[0].agent);
+                $('#wx-18').text(data[0].company_bank);
+                $('#wx-19').text(data[0].company_bankNum);
+            })
+        }
+
 
     })
 
