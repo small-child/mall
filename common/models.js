@@ -134,6 +134,17 @@ module.exports = {
         remarks:{ type: String },
         over:{ type: Number,default:0 },//0为未完成，1为订单已经完成，即作为合同
         order_date:{ type: Date }
+    },contract:{
+        buyCompany:{ type: String },
+        sellCompany:{ type: String },
+        kind:{ type: String },
+        orderId:{ type: String },
+        buyerId:{ type: String },
+        sellerId:{ type: String }, 
+        buyerTag:{ type: Number,default:0 }, //买家有没有签订合同，0未签，1签订
+        sellerTag:{ type: Number,default:0 },//卖家有没有签订合同，0未签，1签订
+        over:{ type: Number,default:0 },     //当俩家同时签订了，合同才生效，为1 
+        date:{ type:Date }
     },cart:{
         uId: { type: String },
         cId: { type: String },

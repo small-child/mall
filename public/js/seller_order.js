@@ -29,15 +29,13 @@ $(function() {
       return fmt;   
     }  
 
-	
-
-    
 
     $.get("/seller_order_count", function(data){
 
 
     	/*页面加载时，获取到信息*/
 	    $.get("/seller_order_data", function(data){
+	    	// console.log(data[0])
 	        var str = "";
 	        for (var i = 0; i < data.length; i++) {
 	            var date = new Date(data[i].order_date).Format("yyyy-MM-dd-hh-mm");
@@ -46,7 +44,11 @@ $(function() {
 	            str += "<td>"+data[i].buy_company+"</td>";
 	            str += "<td>"+date+"</td>";
 	            str += "<td>"+data[i].order_status+"</td>";
-	            str += "<td><a class='btn wx-chat' href='javascript:void(0)'>洽谈</a></td>";
+	            if (data[i].order_status == "洽谈中") {
+	            	str += "<td><a class='btn wx-chat' href='javascript:void(0)'>洽谈</a></td>";
+	            }else{
+	            	str += "<td><a class='btn wx-chat' href='javascript:void(0)'>查看</a></td>";
+	            }
 	            str = "<tr>"+str+"</tr>";
 	        };
 	        $('#wx-tbody').html(str);
@@ -80,7 +82,9 @@ $(function() {
 		var id = $(this).parents('tr').find('td').first().text();
         localStorage.sellerOrderId = id;
         var Company = $(this).parents('tr').find('td:eq(2)').text();
+        var orderStatus = $(this).parents('tr').find('td:eq(4)').text();
         localStorage.sellerOrderCompany = Company;
+       	localStorage.sellerOrderStatus =  orderStatus;
         location.href = "/seller_chat";
 	})
 

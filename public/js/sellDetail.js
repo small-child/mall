@@ -47,10 +47,9 @@ $(function() {
         $('#wx-10').text(data[0].min_deal);
         $('#wx-11').text(data[0].company);
         if (data[0].file1) {
-            // console.log(data[0].file1);
-            // $('#wx-12').html("<img src='"+"picture1/"+data[0].file1+"' style='width:100%;height:100%'>");
+            $('#wx-12').html("<img src='"+"picture/buyRelease/"+data[0].file1+"' style='width:100%;height:100%'>");
         }else {
-            console.log("empty")
+            $('#wx-paragrams').html("<img src='"+"picture/standard/2.jpg' style='width:100%;height:100%'>");
         };
         $('#wx-13').text(data[0].kind);
         $('#wx-14').text(guadan_start.Format("yyyy-MM-dd"));

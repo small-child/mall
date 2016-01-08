@@ -54,7 +54,7 @@ module.exports = function ( app ) {
             } else if (doc) {
                 // res.json('用户名已存在！');
                 res.json(1);
-                console.log(1);
+                // console.log(1);
             } else {
                 User.create({
                     name: uname,

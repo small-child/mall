@@ -67,6 +67,7 @@ module.exports = function ( app ) {
     	// console.log(req.body)
         if(req.session.user){
             var order = global.dbHelper.getModel('order');
+            var contract = global.dbHelper.getModel('contract');
             order.find({"_id":req.params.id},{"unit_price1":1,"volume1":1,"_id":0},function (error, doc) {
                 if (error) {
                     console.log(error);
@@ -89,8 +90,27 @@ module.exports = function ( app ) {
 			                if (error) {
 			                    console.log(error);
 			                }else{
-			                    // console.log(doc);
-			                    res.json(2);//订单确认成功
+			                    res.json(2);  //订单确认成功
+                                order.update({"_id":req.params.id},{$set:{"order_status":"已完成"}},function(err,don) {
+                                    // console.log("see");
+                                })
+                                order.find({"_id":req.params.id},function (err,doc) {
+                                    contract.create({
+                                        buyCompany:doc[0].buy_company,
+                                        sellCompany:doc[0].sell_company,
+                                        kind:doc[0].goods_kind,
+                                        orderId: req.params.id,
+                                        buyerId: doc[0].buyer_id,
+                                        sellerId:doc[0].seller_id,
+                                        date:new Date()
+                                    }, function (error, doc) {
+                                        if (error) {
+                                            console.log(error);
+                                        } else {
+                                            // console.log(3);
+                                        }
+                                    })
+                                })
 			                }
 			            })
                     }

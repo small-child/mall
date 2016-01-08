@@ -1,10 +1,8 @@
 module.exports = function ( app ) {
     app.get('/buy',function(req,res){
         // if(req.session.user){
-        	// console.log(0);
             res.render('buy');
         // }else{
-        	// console.log(1);
             // res.redirect('login');
         // }
     });

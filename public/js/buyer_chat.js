@@ -29,6 +29,9 @@ $(function() {
 	/*订单详情信息1*/
 	$.get("/buyer_chat0/"+localStorage.buyerOrderId, function(data){
         // console.log(data[0]);
+        if (data[0].order_status == "已完成") {
+            $('#wx-order').attr("disabled",true);
+        }
         $('#wx-2').text(data[0].goods_kind);				//商品
         $('#wx-3').text(data[0].order_status);				//订单状态
         $('#wx-5').text(data[0].volume);					//购买数量

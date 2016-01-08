@@ -59,10 +59,9 @@ $(function() {
         $('#wx-22').text(data[0].uname);
         // 检测是不是加强型
         if (data[0].file1) {
-            console.log(data[0].file1);
-            // $('#wx-paragrams').html("<img src='"+"picture/2015-12-29/"+data[0].file1+"' style='width:100%;height:100%'>");
+            $('#wx-paragrams').html("<img src='"+"picture/sellRelease/"+data[0].file1+"' style='width:100%;height:100%'>");
         }else {
-            console.log("empty")
+            $('#wx-paragrams').html("<img src='"+"picture/standard/2.jpg' style='width:100%;height:100%'>");
         }
     }); 
 

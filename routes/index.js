@@ -19,10 +19,13 @@ module.exports = function ( app ) {
     require('./myoffice/buyer_attention_app.js')(app);          //我的办公室-买家关注
     require('./myoffice/buyer_order_app.js')(app);              //我的办公室-买家订单
     require('./myoffice/buyer_chat_app.js')(app);               //我的办公室-买家洽谈
+    require('./myoffice/buyer_contract_app.js')(app);           //我的办公室-买家合同
     require('./myoffice/seller_supply_app.js')(app);            //我的办公室-卖家供应
     require('./myoffice/seller_attention_app.js')(app);         //我的办公室-卖家关注
     require('./myoffice/seller_order_app.js')(app);             //我的办公室-卖家订单
     require('./myoffice/seller_chat_app.js')(app);              //我的办公室-卖家洽谈
+    require('./myoffice/seller_contract_app.js')(app);          //我的办公室-卖家合同
+    require('./myoffice/contract_text_app.js')(app);            //我的办公室-合同文本
     require('./admin/admin_app.js')(app);                       //后台管理-入口界面
     require('./admin/type_app.js')(app);                        //后台管理-入口界面
 };

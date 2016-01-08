@@ -300,13 +300,15 @@ $(function(){
 	    $('#wx-bank_num').val(data[0].company_bankNum);
 	    $('#wx-taxpayer').val(data[0].company_taxpayer);
 	    $('#wx-zip_code').val(data[0].post);
-	    $('.wx-pic_show:eq(0)').html("<img src='"+"picture/"+data[0].picture1+"' style='width:100%;height:100%'>");
-	    $('.wx-pic_show:eq(1)').html("<img src='"+"picture/"+data[0].picture2+"' style='width:100%;height:100%'>");
-	    $('.wx-pic_show:eq(2)').html("<img src='"+"picture/"+data[0].picture3+"' style='width:100%;height:100%'>");
-	    $('.wx-pic_show:eq(3)').html("<img src='"+"picture/"+data[0].picture4+"' style='width:100%;height:100%'>");
-	    $('.wx-pic_show:eq(4)').html("<img src='"+"picture/"+data[0].picture5+"' style='width:100%;height:100%'>");
-	    $('.wx-pic_show:eq(5)').html("<img src='"+"picture/"+data[0].picture6+"' style='width:100%;height:100%'>");
-
+	    console.log(typeof data[0].picture6)
+	    $('.wx-pic_show:eq(0)').html("<img src='"+"picture/certification/"+data[0].picture1+"' style='width:100%;height:100%'>");
+	    $('.wx-pic_show:eq(1)').html("<img src='"+"picture/certification/"+data[0].picture2+"' style='width:100%;height:100%'>");
+	    $('.wx-pic_show:eq(2)').html("<img src='"+"picture/certification/"+data[0].picture3+"' style='width:100%;height:100%'>");
+	    $('.wx-pic_show:eq(3)').html("<img src='"+"picture/certification/"+data[0].picture4+"' style='width:100%;height:100%'>");
+	    $('.wx-pic_show:eq(4)').html("<img src='"+"picture/certification/"+data[0].picture5+"' style='width:100%;height:100%'>");
+	    if (data[0].picture6 != "none") {
+	    	$('.wx-pic_show:eq(5)').html("<img src='"+"picture/certification/"+data[0].picture6+"' style='width:100%;height:100%'>");
+	    }
 	 });
 	
 })

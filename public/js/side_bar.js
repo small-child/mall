@@ -40,6 +40,11 @@ $(function() {
 		location.href='/buyer_order';
 	});
 
+	// 买家-我的合同
+	$('.wx-ullist:eq(1) li:eq(3) a').click(function(){
+		location.href='/buyer_contract';
+	});
+
 	// 卖家-我的供应
 	$('.wx-ullist:eq(2) li:eq(0) a').click(function(){
 		location.href='/seller_supply';
@@ -53,6 +58,11 @@ $(function() {
 	// 卖家-我的订单
 	$('.wx-ullist:eq(2) li:eq(2) a').click(function(){
 		location.href='/seller_order';
+	});
+
+	// 卖家-我的合同
+	$('.wx-ullist:eq(2) li:eq(3) a').click(function(){
+		location.href='/seller_contract';
 	});
 
 })

@@ -41,7 +41,11 @@ $(function() {
 	            str += "<td>"+data[i].sell_company+"</td>";
 	            str += "<td>"+date+"</td>";
 	            str += "<td>"+data[i].order_status+"</td>";
-	            str += "<td><a class='btn wx-chat' href='javascript:void(0)'>洽谈</a></td>";
+	            if (data[i].order_status == "洽谈中") {
+	            	str += "<td><a class='btn wx-chat' href='javascript:void(0)'>洽谈</a></td>";
+	            }else{
+	            	str += "<td><a class='btn wx-chat' href='javascript:void(0)'>查看</a></td>";
+	            }
 	            str = "<tr>"+str+"</tr>";
 	        };
 	        $('#wx-tbody').html(str);
