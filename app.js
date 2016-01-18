@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 var path = require('path');
 var mongoose = require("mongoose");
 
@@ -14,6 +16,8 @@ global.db = mongoose.connect("mongodb://127.0.0.1:27017/ylxc");
 // global.bigtype = "0";	//商品大类保存下来
 // global.smallarray = []; 	//保存商品小类
 global.kind_id = 0;         //商品小类id
+global.chat_id = "11111";
+
 app.use(session({
     secret:'secret',
     cookie:{
@@ -43,5 +47,28 @@ require('./routes')(app);
 app.get('/', function(req, res) {
     res.render('register');
 });
+    
+/*chatroom*/
+io.on('connection', function(socket){
+  	socket.on('chat message', function(msg){
+      	io.emit(msg.order_id, msg);
+        var chatRcord = global.dbHelper.getModel('chatRcord');
+        chatRcord.create({
+            order_id: msg.order_id,
+            who: msg.who,
+            userName: msg.name,
+            information: msg.information,
+            time:msg.time
+        }, function (error, doc) {
+            if (error) {
+                console.log(error);
+            } else {
+                // console.log("write to db sucessfully");
+            }
+        })
+    })
+})
 
-app.listen(8080);
+http.listen(8080, function(){
+  console.log('listening on *:8080');
+});

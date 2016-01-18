@@ -1,10 +1,14 @@
 module.exports = function ( app ) {
     app.get('/buyDetail',function(req,res){
-        // if(req.session.user){
-            res.render('buyDetail');
-        // }else{
-            // res.redirect('login');
-        // }
+        if(req.session.user){
+            if (req.session.user.role == 0) {
+                res.render('error');
+            } else{
+                res.render('buyDetail');
+            }
+        }else{
+            res.redirect('login');
+        }
     });
 
     /*获取商品详情信息*/   

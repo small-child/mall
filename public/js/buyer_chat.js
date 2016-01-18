@@ -5,7 +5,9 @@ $(function() {
 	// console.log(localStorage.buyerOrderId);
 	$('#wx-1').text(localStorage.buyerOrderCompany);//公司名称
 
-	/*时间日期格式化*/
+    /*scroll*/
+
+    /*时间日期格式化*/
     Date.prototype.Format = function(fmt)   
     { //author: meizz   
       var o = {   
@@ -25,6 +27,65 @@ $(function() {
       return fmt;   
     }  
 
+    /*chatroom*/
+    var socket = io();
+    $('#wx-send').click(function(){
+        /*获得卖家名字*/
+        var message = new Object();
+        message.order_id = localStorage.buyerOrderId;
+        message.who = 0;
+        message.information = $('#wx-message0').val();
+        message.time = new Date().Format("yyyy-MM-dd hh:mm:ss:qq:SS");
+        message.name = localStorage.userName;
+        socket.emit('chat message', message);
+        $('#wx-message0').val('');
+        return false; 
+    })
+
+    /*receive message*/
+    socket.on(localStorage.buyerOrderId, function(msg){
+        // console.log(msg)
+        $('#messages').append($('<li>').text(msg.name+":"+msg.information));
+        var height = 0;
+        $('#messages li').each(function(i, value){
+            height += parseInt($(this).height());
+        });
+        console.log(height)
+        height += '';
+        $('.wx-frame').animate({scrollTop: height});
+        /*chagne the tag, has receive the missage.*/
+        if (msg.who == 1) {
+            $.get("/buyer_chatMessage/"+msg.order_id+'/'+msg.time, function(data){
+                // console.log(data);
+            })
+        }
+    })
+
+    /*receive the message of offline*/
+    /*
+    $.get("/buyer_offline/"+localStorage.buyerOrderId, function(data){
+         // console.log(data);
+         var message = "";
+         for (var i = 0; i < data.length; i++) {
+             $('#messages').append($('<li>').text(data[i].userName+":"+data[i].information));
+         }
+    })
+    */
+    /*chat history*/
+    $.get("/buyer_chatHistory/"+localStorage.buyerOrderId, function(data){
+        var message = "";
+        for (var i = 0; i < data.length; i++) {
+            $('#messages').append($('<li>').text(data[i].userName+":"+data[i].information));
+        }
+        var height = 0;
+        $('#messages li').each(function(i, value){
+            height += parseInt($(this).height());
+        });
+        console.log(height)
+        height += '';
+        $('.wx-frame').animate({scrollTop: height});
+    })
+
 
 	/*订单详情信息1*/
 	$.get("/buyer_chat0/"+localStorage.buyerOrderId, function(data){
@@ -38,6 +99,7 @@ $(function() {
         $('#wx-6').text(data[0].unit_price);				//购买单价
         $('#wx-7').text(data[0].unit_price*data[0].volume);	//购买单价
     })
+
 	/*订单详情信息2*/
     $.get("/buyer_chat/"+localStorage.buyerOrderId, function(data){
     	// console.log(data[0]);

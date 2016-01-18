@@ -106,7 +106,7 @@ module.exports = function ( app ) {
                                 console.log(err);
                             }else{
                                 console.log(doc);
-                                res.json(00);
+                                // res.json(00);
                             }
                         })
                     };

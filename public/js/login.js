@@ -35,7 +35,7 @@ $(function(){
 	//表单验证结束 
     
 	localStorage.login=0;
-	console.log(location.href.toString() == 'http://127.0.0.1:8080/login');
+	// console.log(location.href.toString() == 'http://127.0.0.1:8080/login');
 	//提交，最终验证。
     $('.wx-registerSend').click(function(){
 
@@ -58,6 +58,7 @@ $(function(){
 						// alert("登陆成功");
 						location.href='index';
 						localStorage.login=1;
+						localStorage.userName = $('#wx-user').val();
 					};
 					if (data == 1) {
 						alert("用户名不存在");

@@ -1,6 +1,7 @@
 module.exports = function ( app ) {
     require('./register_app.js')(app);      //注册
     require('./login_app.js')(app);         //登陆
+    require('./header_app.js')(app);         //首页
     require('./index_app.js')(app);         //首页
     require('./buy_app.js')(app);           //我要买
     require('./buyRelease_app.js')(app);    //我要买-发布需求

@@ -210,18 +210,14 @@ $(function(){
 
 	//提交，最终验证。
     $('.wx-registerSend').click(function(){
-		 
 		$(".wx-input").trigger('blur');			
 		var numError = $('form .onError').length;		
 		if(numError){				
-			alert(0);
 			return false;	
 		}else{
-			alert(1);
 			var fd = new FormData();
 			var fd1 = new FormData();
 			/*表单数据*/
-			
 			fd.append('name', $('#wx-company_name').val());			
 			fd.append('address', $('#wx-address').val());
 			fd.append('company_tel', $('#wx-telephone').val());
@@ -254,7 +250,12 @@ $(function(){
 				processData: false,
             	contentType: false,
 				success:function(data) {
-					console.log(data);	
+					// console.log(data);
+					if (data == 0) {
+						$('#wx-compText').text("发布成功")
+					}else{
+						$('#wx-compText').text("发布失败")
+					}	
 				}
 			});	
 			
@@ -266,7 +267,7 @@ $(function(){
 				processData: false,
             	contentType: false,
 				success:function(data) {
-					console.log(data);	
+					// console.log(data);	
 				}
 			});	
 			

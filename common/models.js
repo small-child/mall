@@ -145,6 +145,13 @@ module.exports = {
         sellerTag:{ type: Number,default:0 },//卖家有没有签订合同，0未签，1签订
         over:{ type: Number,default:0 },     //当俩家同时签订了，合同才生效，为1 
         date:{ type:Date }
+    },chatRcord:{
+        order_id: {type: String},
+        who:{type: Number},          //who send this message,0 is buyer,1 is seller
+        userName: {type: String},    //auther of message
+        tag:{type: Number, default:0},//0 represent not been seen
+        information:{type: String},
+        time:{type: String}
     },cart:{
         uId: { type: String },
         cId: { type: String },

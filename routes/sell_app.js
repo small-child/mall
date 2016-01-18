@@ -1,10 +1,10 @@
 module.exports = function ( app ) {
     app.get('/sell',function(req,res){
-        // if(req.session.user){
+        if(req.session.user){
         	res.render('sell');
-        // }else{
-            // res.redirect('login');
-        // }
+        }else{
+            res.redirect('login');
+        }
     });
 
     /*公司名字获取*/

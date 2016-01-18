@@ -2,10 +2,10 @@ $(function() {
 	
 	//侧栏颜色
 	$('.wx-ullist:eq(2) li:eq(2) a').addClass('wx-click');
-	// console.log(localStorage.sellerOrderId);
+	console.log(localStorage.sellerOrderId);
 	$('#wx-1').text(localStorage.sellerOrderCompany);//公司名称
 
-	/*时间日期格式化*/
+    /*时间日期格式化*/
     Date.prototype.Format = function(fmt)   
     { //author: meizz   
       var o = {   
@@ -24,6 +24,70 @@ $(function() {
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
       return fmt;   
     }  
+
+    /*chatroom*/
+    var socket = io();
+
+    $('#wx-send').click(function(){
+        /*获得买家名字*/
+        var message = new Object();
+        message.order_id = localStorage.sellerOrderId;
+        message.who = 1;
+        message.information = $('#wx-message0').val();
+        message.time = new Date().Format("yyyy-MM-dd hh:mm:ss:qq:SS");
+        message.name = localStorage.userName;
+        socket.emit('chat message', message);
+        $('#wx-message0').val('');
+        return false;   
+             
+    })
+
+    socket.on(localStorage.sellerOrderId, function(msg){
+        // console.log(typeof msg.time)
+        $('#messages').append($('<li>').text(msg.name+":"+msg.information));
+        /*scroll*/
+        var height = 0;
+        $('.wx-frame ul li').each(function(i, value){
+            height += parseInt($(this).height());
+        });
+        height += '';
+        $('.wx-frame').animate({scrollTop: height});
+
+        /*chagne the tag, has receive the missage.*/
+        if (msg.who == 0) {
+            $.get("/seller_chatMessage/"+msg.order_id+'/'+msg.time, function(data){
+                // console.log(data);
+            })
+        }
+    })
+
+    /*receive the message of offline*/
+    /*
+    $.get("/seller_offline/"+localStorage.sellerOrderId, function(data){
+         // console.log(data);
+         var message = "";
+         for (var i = 0; i < data.length; i++) {
+             $('#messages').append($('<li>').text(data[i].userName+":"+data[i].information));
+         }
+    })
+    */
+    $.get("/seller_chatHistory/"+localStorage.sellerOrderId, function(data){
+         // console.log(data);
+         var message = "";
+        for (var i = 0; i < data.length; i++) {
+            $('#messages').append($('<li>').text(data[i].userName+":"+data[i].information));
+        }
+        /*scroll*/
+        var height = 0;
+        $('.wx-frame ul li').each(function(i, value){
+            height += parseInt($(this).height());
+        });
+        height += '';
+        $('.wx-frame').animate({scrollTop: height});
+    })
+
+
+    
 
 	/*订单详情信息1*/
 	$.get("/seller_chat0/"+localStorage.sellerOrderId, function(data){

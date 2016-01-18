@@ -4,7 +4,7 @@ $(function () {
 	var headerCss = "body{font-family: SimSun,sans-serif;}.wx-background{background:white;}.wx-button{margin-top:49px;}.wx-first{padding-left:0px;}.wx-last{padding-right:0px;}#wx-nav a{color:white;}#wx-nav a:hover{color:white; background:coral !important;}#wx-nav .active a{color:white !important; background:coral !important;}";
 	$('<style>').html(headerCss).appendTo($('head'));
 	//头文件代码
-	var header = "<div style='background:white;'><div class='container'><div class='row wx-background'><div class='col-md-9 wx-first'><img src='photos/logo.jpg'></div><div class='col-md-3 wx-last'><ul class='nav nav-pills' style='float:right'><li class='active wx-button' style='display:none;' id='wx-message'><div class='dropdown'><button class='btn btn-info dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown'><span class='badge pull-right' style='color:red;'>42</span><span class='glyphicon glyphicon-user'></span></button><ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'><li role='presentation'><a role='menuitem' tabindex='-1' href='#'><span class='badge pull-right' style='color:white;background: #F60;'>3</span><span>王强</span></a></li><li role='presentation'><a role='menuitem' tabindex='-1' href='#'>卢淑君</a></li><li role='presentation'><a role='menuitem' tabindex='-1' href='#'>小杨</a></li><li role='presentation'><a role='menuitem' tabindex='-1' href='#'>丁楠</a></li></ul></div> </li><li><button class='btn wx-button' id='wx-login_header'>登陆</button><button class='btn wx-button' id='wx-quite' style='display:none;'>退出</button></li><li><button class='btn wx-button' id='wx-office' style='display:none;'>我的办公室</button><button class='btn wx-button' id='wx-register_header'>注册</button></li></ul></div></div></div></div><div style='background-color: #03F'><div class='container'><div class='row'><div class='col-md-2'></div><div class='col-md-8'><ul class='nav  nav-justified' id='wx-nav'><li><a href='javascript:void(0);' class='text-center' id='wx-index'>首页</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-buy'>我要买</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-sell'>我要卖</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-express'>物流</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-quotation'>交易行情</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-aboutUs'>关于我们</a></li></ul></div><div class='col-md-2'></div></div></div></div>";
+	var header = "<div style='background:white;'><div class='container'><div class='row wx-background'><div class='col-md-9 wx-first'><img src='photos/logo.jpg'></div><div class='col-md-3 wx-last'><ul class='nav nav-pills' style='float:right'><li class='active wx-button' style='display:none;' id='wx-message'><div class='dropdown'><button class='btn btn-info dropdown-toggle' type='button' id='dropdownMenu1' data-toggle='dropdown'><span class='badge pull-right' id='wx-bag0' style='color:red;'></span><span class='glyphicon glyphicon-user'></span></button><ul id='wx-msg0' class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'></ul></div> </li><li><button class='btn wx-button' id='wx-login_header'>登陆</button><button class='btn wx-button' id='wx-quite' style='display:none;'>退出</button></li><li><button class='btn wx-button' id='wx-office' style='display:none;'>我的办公室</button><button class='btn wx-button' id='wx-register_header'>注册</button></li></ul></div></div></div></div><div style='background-color: #03F'><div class='container'><div class='row'><div class='col-md-2'></div><div class='col-md-8'><ul class='nav  nav-justified' id='wx-nav'><li><a href='javascript:void(0);' class='text-center' id='wx-index'>首页</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-buy'>我要买</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-sell'>我要卖</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-express'>物流</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-quotation'>交易行情</a></li><li><a href='javascript:void(0);' class='text-center' id='wx-aboutUs'>关于我们</a></li></ul></div><div class='col-md-2'></div></div></div></div>";
 
 	//加载头文件
 	$('#wx-header').html(header);
@@ -28,9 +28,6 @@ $(function () {
 		location.href='logout';
         localStorage.login=0;
     });
-    
-    
-    
     
     if (localStorage.login == 0) {
     	$('#wx-office').hide();
@@ -110,6 +107,76 @@ $(function () {
         // alert(123);
         location.href='aboutUs';
     });
+
+    /*buyer offfline*/
+    $.get("/head_message0", function(data){
+        // console.log(data.length)
+        var arr = [];
+        for (var i = 0; i < data.length; i++) {
+            arr[i] = data[i]._id;
+        }
+        $.ajax({                
+            url:'/head_message1',
+            type:"POST", 
+            dataType:"json",
+            data:{
+                chatRcord:arr
+            },
+            success:function(data){
+                // console.log(data.length);
+                // console.log(data);
+                var str = "";
+                for (var i = 0; i < data.length; i++) {
+                    str = "<li role='presentation'><a role='menuitem' tabindex='-1' href='#' class='wx-msg1'>";
+                    str += "<span class='badge pull-right' style='color:white;background: #F60;'>";
+                    str += data[i].count+"</span><span>"+"B"+data[i]._id+"</span></a></li>";
+                    $('#wx-msg0').append(str);
+                    $('#wx-bag0').text("消息");
+                }
+                // $('#wx-msg0').html(str);
+                
+            }               
+        })
+    })
+
+    /*buyer offfline*/
+    $.get("/head_message3", function(data){
+        // console.log(data.length)
+        var arr = [];
+        for (var i = 0; i < data.length; i++) {
+            arr[i] = data[i]._id;
+        }
+        $.ajax({                
+            url:'/head_message4',
+            type:"POST", 
+            dataType:"json",
+            data:{
+                chatRcord:arr
+            },
+            success:function(data){
+                // console.log(data.length);
+                // console.log(data);
+                var str = "";
+                for (var i = 0; i < data.length; i++) {
+                    str = "<li role='presentation'><a role='menuitem' tabindex='-1' href='#' class='wx-msg1'>";
+                    str += "<span class='badge pull-right' style='color:white;background: #F60;'>";
+                    str += data[i].count+"</span><span>"+"S"+data[i]._id+"</span></a></li>";
+                    $('#wx-msg0').append(str);
+                    $('#wx-bag0').text("消息");
+                }
+                // $('#wx-msg0').html(str);
+                
+            }               
+        })
+    })
+
+
+
+    /*当点击购买按钮时候，将该条信息的id保存起来*/
+    $(document).on('click','.wx-msg1',function(){       
+        // location.href = "buyDetail";跳转到消息页面
+    })
+    
 
     
 

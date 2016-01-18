@@ -2,7 +2,11 @@ module.exports = function ( app ) {
 
     app.get('/sellRelease',function(req,res){
         if(req.session.user){
-            res.render('sellRelease');
+            if (req.session.user.role == 0) {
+                res.render('error');
+            } else{
+                res.render('sellRelease');
+            }
         }else{
             res.redirect('login');
         }

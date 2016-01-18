@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>一路新材</title>   
+    <!-- Bootstrap -->
+    <link href="bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 轮动css央视引入结束 -->
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- 引入页头插件 -->
+    <div id="wx-header"></div>
+    <div style="height:100px;"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    对不起，您没有进行公司认证，没有相关权限，请点击
+                    <a class="alert-link" id="wx-gocomp" href="javascript:void(0)">公司认证</a>
+                    进行认证。
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:130px;"></div>
+    <!-- 引入页尾插件 -->
+    <div id="wx-footer"></div>
+	<!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- 引入头文件 -->
+    <script src="js/header.js"></script>
+    <!-- 引入页尾文件 -->
+    <script src="js/footer.js"></script>
+    <script type="text/javascript">
+        $('#wx-gocomp').click(function() {
+            location.href = "company_information";
+        })
+    </script>
+</body>
+</html>

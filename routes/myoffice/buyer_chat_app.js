@@ -1,4 +1,5 @@
 module.exports = function ( app ) {
+
     app.get('/buyer_chat',function(req,res){
         if(req.session.user){
             res.render('buyer_chat');
@@ -114,6 +115,76 @@ module.exports = function ( app ) {
                 }
             })
             
+        }else{
+            res.redirect('login');
+        }
+    })
+
+    /*the charRecord*/
+    app.get('/buyer_chatMessage/:id?/:time',function(req,res){
+        // console.log(req.params);
+        var id = req.params.id;
+        var time = req.params.time;
+        if(req.session.user){
+            var chatRcord = global.dbHelper.getModel('chatRcord');
+            chatRcord.update({"order_id":id,"time":time},{$set:{"tag":1}},function (error, doc) {
+                if (error) {
+                    console.log(error);
+                }else{
+                    // console.log(doc)
+                    // console.log("dbs has changed");
+                }
+            })
+            
+        }else{
+            res.redirect('login');
+        }
+    })
+
+    /*get the message of offline*/
+    /*
+    app.get('/buyer_offline/:id',function(req,res){
+        if(req.session.user){
+            var id = req.params.id;
+            var chatRcord = global.dbHelper.getModel('chatRcord');
+            chatRcord.find({"order_id":id,"who":1,"tag":0},{"information":1,"userName":1,"_id":0},function (error, doc) {
+                if (error) {
+                    console.log(error);
+                }else{
+                    res.json(doc);
+                    chatRcord.update({"order_id":id,"who":1,"tag":0},{$set:{"tag":1}},{multi:true},function (error, doc) {
+                        if (error) {
+                            console.log(error);
+                        }else{
+                            // console.log(doc);
+                        }
+                    })
+                }
+            })
+        }else{
+            res.redirect('login');
+        }
+    })
+    */
+    /*chat history*/
+    app.get('/buyer_chatHistory/:id',function(req,res){
+        if(req.session.user){
+            var id = req.params.id;
+            var chatRcord = global.dbHelper.getModel('chatRcord');
+            chatRcord.find({"order_id":id},{"information":1,"userName":1,"_id":0},function (error, doc) {
+                if (error) {
+                    console.log(error);
+                }else{
+                    res.json(doc);
+                    chatRcord.update({"order_id":id,"who":1,"tag":0},{$set:{"tag":1}},{multi:true},function (error, doc) {
+                        if (error) {
+                            console.log(error);
+                        }else{
+                            // console.log(doc);
+                        }
+                    })
+                }
+            })
         }else{
             res.redirect('login');
         }

@@ -1,10 +1,10 @@
 module.exports = function ( app ) {
     app.get('/buy',function(req,res){
-        // if(req.session.user){
+        if(req.session.user){
             res.render('buy');
-        // }else{
-            // res.redirect('login');
-        // }
+        }else{
+            res.redirect('login');
+        }
     });
 
     /*计算数据库有多少商品信息*/

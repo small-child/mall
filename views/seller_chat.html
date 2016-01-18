@@ -14,6 +14,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        #messages li:nth-child(odd) { background: #eee; }
+        #messages li { padding: 5px 0px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+    </style>
 </head>
 <body>
     <!-- 引入页头插件 -->
@@ -93,7 +98,7 @@
                     <!-- chat s -->
                     <!-- chat warning -->
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" >
                             <p class="text-center wx-warning"><span class="text-warning">温馨提醒：</span>合同中商品价格及数量以聊天最终价格为定！</p>
                         </div>
                     </div>
@@ -105,22 +110,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 wx-frame">
+                        <div class="col-md-12 wx-frame" style="padding:0px;">
                             <!-- 此处为聊天信息 -->
+                            <ul id="messages"></ul>
                         </div>
                     </div>
                     <!-- 聊天框 e -->
                     <div style="height:10px;"></div>
                     <!--信息发送s -->
                     <div class="row">
-                        <div class="col-md-10" style="padding-left:0px;">
-                            <form action="javascript:void(0)" class="form-inline">
-                                <input type="text" class="form-control" style="width:100%;height:40px;" placeholder="输入聊天信息">
-                            </form>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-success" style="width:100%;">发送</button>
-                        </div>
+                        <form action="javascript:void(0)" class="form-inline">
+                            <div class="col-md-10" style="padding-left:0px;">
+                                <input type="text" class="form-control" style="width:100%;height:40px;" 
+                                autocomplete="off" placeholder="输入聊天信息" id="wx-message0">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-success" style="width:100%;" id="wx-send">发送</button>
+                            </div>
+                        </form>
                     </div>
                     <!--信息发送e -->
                     <div style="height:20px;"></div>
@@ -135,19 +142,19 @@
                                 <div class="col-md-4" style="padding-left:0px;">
                                     <div class="form-group">
                                         <label for="wx-price">单价</label>
-                                        <input type="text" class="form-control" id="wx-18" placeholder="输入目标单价">
+                                        <input type="text" class="form-control" id="wx-18" placeholder="输入目标单价" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-md-4" style="padding-left:0px;">
                                     <div class="form-group">
                                         <label for="wx-number">数量</label>
-                                        <input type="text" class="form-control" id="wx-19" placeholder="输入目标数量">
+                                        <input type="text" class="form-control" id="wx-19" placeholder="输入目标数量" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="wx-remark">备注</label>
-                                        <input type="text" class="form-control" id="wx-20" placeholder="输入备注">
+                                        <input type="text" class="form-control" id="wx-20" placeholder="输入备注" autocomplete="off">
                                     </div>
                                 </div>
                             </form>   
@@ -170,6 +177,8 @@
     <script src="js/jquery-2.1.4.min.js"></script>
     <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
     <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- chatroom -->
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <!-- 引入头文件 -->
     <script src="js/header.js"></script>
     <!-- 引入页尾文件 -->
