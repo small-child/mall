@@ -40,10 +40,25 @@
     <script src="js/header.js"></script>
     <!-- 引入页尾文件 -->
     <script src="js/footer.js"></script>
+    <!-- 百度自动推送 -->
     <script type="text/javascript">
-        $('#wx-gocomp').click(function() {
+        $('#wx-gocomp').click(function(){
             location.href = "company_information";
         })
+    </script>
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+    <!-- 百度站长工具代码 -->
+    <meta name="baidu-site-verification" content="hw1iRdWto4" />
+    <!-- 站长工具代码 -->
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257353670'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257353670%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));
     </script>
 </body>
 </html>

@@ -115,7 +115,8 @@ $(function() {
     })
 
      /*4.公司名称*/
-    $.get("/sell_companyName", function(data){
+    
+$.get("/sell_companyName", function(data){
         // console.log(data[0]);
         var str = "<option>请选择</option>";
         for (var i = 0; i < data.length; i++) {
@@ -123,7 +124,6 @@ $(function() {
         };
         $('#wx-4').html(str);   
     });
-
     /*初始状态下*/
     $.get("/sell_data", function(data){
         var str = "";
@@ -328,7 +328,7 @@ $(function() {
                 }
             })
         }
-    });
+    })
     
     /*当点击售卖按钮时候，将该条信息的id保存起来*/
     $(document).on('click','.wx-sellGoods',function(){

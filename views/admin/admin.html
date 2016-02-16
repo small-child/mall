@@ -24,18 +24,18 @@
     <div class="container" style="background:#e1e1e1;">
         <div class="row" style="margin-top:100px;">
             <div class="col-md-6">
-                <button class="btn btn-success  wx-type" style="width:80%;margin-left:9%;">商品种类入口</button>
+                <button class="btn btn-success wx-1" style="width:80%;margin-left:9%;">商品种类入口</button>
             </div>
             <div class="col-md-6">
-                <button class="btn btn-success" style="width:80%;margin-left:9%;">商品种类入口</button>
+                <button class="btn btn-success wx-2" style="width:80%;margin-left:9%;">公司信息认证</button>
             </div>
         </div>
         <div class="row" style="margin-top:30px;">
             <div class="col-md-6">
-                <button class="btn btn-success" style="width:80%; margin-left:9%;">商品种类入口</button>
+                <button class="btn btn-success wx-3" style="width:80%; margin-left:9%;">用户信息</button>
             </div>
             <div class="col-md-6">
-                <button class="btn btn-success" style="width:80%; margin-left:9%;">商品种类入口</button>
+                <button class="btn btn-success wx-4" style="width:80%; margin-left:9%;">订单</button>
             </div>
         </div>
         <div class="row" style="margin-top:30px;">
@@ -63,16 +63,27 @@
             </div>
         </div>
     </div>
-   
     <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
     <script src="../js/jquery-2.1.4.min.js"></script>
     <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
     <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            $('.wx-type').click(function () {
-                // console.log('nihao')
+            // 商品信息增删
+            $('.wx-1').click(function () {
                 location.href = "type";
+            })
+            // 公司认证
+            $('.wx-2').click(function () {
+                location.href = "companyCertification";
+            })
+            // 用户信息查看
+            $('.wx-3').click(function () {
+                location.href = "user";
+            })
+            // 订单
+            $('.wx-4').click(function () {
+                location.href = "order";
             })
         })
     </script>

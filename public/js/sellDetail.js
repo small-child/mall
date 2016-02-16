@@ -104,9 +104,11 @@ $(function() {
                     buyer_id:localStorage.sellDetail_uid,
                     buy_company:localStorage.sellDetail_companyName,
                     goods_kind:localStorage.sellDetail_kind,
+                    goods_rank:$('#wx-19').text(),
                     volume:$('#wx-28').val(),
                     role:0,
                     unit_price:$('#wx-30').val(),
+                    order_time:new Date().Format("yyyy-MM-dd"),
                     order_date:new Date()
                 },
                 success:function(data) {

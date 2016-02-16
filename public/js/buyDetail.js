@@ -111,9 +111,11 @@ $(function() {
                     seller_id:localStorage.buyDetail_uid,
                     sell_company:localStorage.buyDetail_companyName,
                     goods_kind:localStorage.buyDetail_kind,
+                    goods_rank:$('#wx-18').text(),
                     volume:$('#wx-28').val(),
                     unit_price:$('#wx-30').val(),
                     role:1,
+                    order_time:new Date().Format("yyyy-MM-dd"),
                     order_date:new Date()
                 },
                 success:function(data) {

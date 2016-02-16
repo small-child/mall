@@ -1,50 +1,63 @@
 module.exports = function ( app ) {
     app.get('/admin/type',function(req,res){
-        res.render('admin/type');
-    });
+        if(req.session.user){
+            res.render('admin/type');
+        }else{
+            res.redirect('../login');
+        }
+    })
 
     /*2.商品大类操作*/
 
     //商品类别增加
   	app.post('/admin/type',function  (req,res,next) {
-  		var bigtype = global.dbHelper.getModel('bigtype');
-        bigtype.findOne({name: req.body.bigType},{name:1,_id:0}, function (error, doc) {
-            if (error) {
-                console.log(error);
-                // console.log(0);
-            }else if (doc) {
-            	res.json(1)
-            	// console.log(doc);
-            }else {
-                bigtype.create({
-                    name: req.body.bigType
-                }, function (error, doc) {
-                    if (error) {
-                        console.log(error);
-                        // console.log(2);
-                    } else {
-                    	res.json('3')
-                        // console.log(3);
-                    }
-                });
-            }
-        });
+        if(req.session.user){
+            var bigtype = global.dbHelper.getModel('bigtype');
+            bigtype.findOne({name: req.body.bigType},{name:1,_id:0}, function (error, doc) {
+                if (error) {
+                    console.log(error);
+                    // console.log(0);
+                }else if (doc) {
+                    res.json(1)
+                    // console.log(doc);
+                }else {
+                    bigtype.create({
+                        name: req.body.bigType
+                    }, function (error, doc) {
+                        if (error) {
+                            console.log(error);
+                            // console.log(2);
+                        } else {
+                            res.json('3')
+                            // console.log(3);
+                        }
+                    })
+                }
+            })
+        }else{
+            res.redirect('../login');
+        }
   	})
     
   	app.get('/admin/type_data',function(req,res){
-        var bigtype = global.dbHelper.getModel('bigtype');
-        bigtype.find({},{name:1,_id:0}, function (error, doc) {
-            if (error) {
-                console.log(error);
-                // console.log(0);
-            }else{
-            	res.json(doc);
-                if (doc[0].name) {
-                    // global.bigtype = doc[0].name;
-                };
-            }
-        });
-    });
+        if(req.session.user){
+            var bigtype = global.dbHelper.getModel('bigtype');
+            bigtype.find({},{name:1,_id:0}, function (error, doc) {
+                if (error) {
+                    console.log(error);
+                    // console.log(0);
+                }else{
+                    res.json(doc);
+                    if (doc[0].name) {
+                        // global.bigtype = doc[0].name;
+                    }
+                }
+            })
+        }else{
+            res.redirect('../login');
+        }
+        
+    })
     
   	// 商品大类删除
     app.delete('/admin/type_delete',function(req,res){

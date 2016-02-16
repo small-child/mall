@@ -28,5 +28,10 @@ module.exports = function ( app ) {
     require('./myoffice/seller_contract_app.js')(app);          //我的办公室-卖家合同
     require('./myoffice/contract_text_app.js')(app);            //我的办公室-合同文本
     require('./admin/admin_app.js')(app);                       //后台管理-入口界面
-    require('./admin/type_app.js')(app);                        //后台管理-入口界面
+    require('./admin/type_app.js')(app);                        //后台管理-商品信息界面
+    require('./admin/companyCertification_app.js')(app);        //后台管理-公司认证界面
+    require('./admin/company_detail_app.js')(app);              //后台管理-公司详细信息界面
+    require('./admin/user_app.js')(app);                        //后台管理-用户信息
+    require('./admin/user_company_app.js')(app);                //后台管理-用户所在公司信息
+    require('./admin/order_app.js')(app);                           //后台管理-订单
 };

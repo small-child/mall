@@ -3,7 +3,7 @@ module.exports = function ( app ) {
         if(req.session.user){
             res.render('buyer_order');
         }else{
-            res.redirect('login');
+            // res.redirect('login');
         }
     })
 
@@ -23,11 +23,14 @@ module.exports = function ( app ) {
                         buyer_id: req.session.user._id,
                         seller_id: req.body.seller_id,
                         goods_kind: req.body.goods_kind,
+                        goods_rank: req.body.goods_rank,
                         buy_company: doc[0].name,
                         sell_company:req.body.sell_company,
                         volume:req.body.volume,
                         role:req.body.role,
+                        sum:req.body.volume*req.body.unit_price,
                         unit_price:req.body.unit_price,
+                        order_time:new Date(req.body.order_time),
                         order_date:new Date(req.body.order_date)
                     }, function (error, doc) {
                         if (error) {
@@ -68,7 +71,7 @@ module.exports = function ( app ) {
     app.get('/buyer_order_data',function(req,res){
         if(req.session.user){
             var order = global.dbHelper.getModel('order');
-            order.find({"buyer_id":req.session.user._id},{"sell_company":1,"goods_kind":1,"order_date":1,"order_status":1}
+            order.find({"buyer_id":req.session.user._id},{"sell_company":1,"goods_kind":1,"order_date":1,"order_status":1,"goods_rank":1}
             	,{sort:{order_date:-1},limit:2},function (err,doc) {
                 if (err) {
                     console.log(err);
@@ -80,14 +83,14 @@ module.exports = function ( app ) {
         }else{
             res.redirect('login');
         }
-    });
+    })
 
-    /*页面加载时，数据返回*/
+    /*页面分页，数据返回*/
     app.get('/buyer_order_page/:page',function(req,res){
         if(req.session.user){
         	var page = parseInt(req.params.page);
             var order = global.dbHelper.getModel('order');
-            order.find({"buyer_id":req.session.user._id},{"sell_company":1,"goods_kind":1,"order_date":1,"order_status":1}
+            order.find({"buyer_id":req.session.user._id},{"sell_company":1,"goods_kind":1,"order_date":1,"order_status":1,"goods_rank":1}
             	,{sort:{order_date:-1},limit:2,skip:2*(page-1)},function (err,doc) {
                 if (err) {
                     console.log(err);
@@ -99,7 +102,7 @@ module.exports = function ( app ) {
         }else{
             res.redirect('login');
         }
-    });
+    })
 
 
 }

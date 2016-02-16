@@ -21,7 +21,7 @@ global.chat_id = "11111";
 app.use(session({
     secret:'secret',
     cookie:{
-        maxAge:1000*60*60*60
+        maxAge:1000*60*60
     }
 }));
 
@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 require('./routes')(app);
 
 app.get('/', function(req, res) {
-    res.render('register');
+    res.render('index');
 });
     
 /*chatroom*/
@@ -69,6 +69,6 @@ io.on('connection', function(socket){
     })
 })
 
-http.listen(8080, function(){
-  console.log('listening on *:8080');
+http.listen(80, function(){
+  console.log('listening on *:80');
 });

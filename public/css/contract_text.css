@@ -11,3 +11,11 @@
 .wx-blod{
 	font-weight: bold;
 }
+
+.kuang{
+	float:left;
+	/*border: 1px solid black;*/
+	margin-left: 5px;
+	height: 295px;
+	width: 500px;
+}

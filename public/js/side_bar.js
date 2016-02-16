@@ -6,7 +6,7 @@ $(function() {
 	$('#wx-sideBar').html(sideBar);
 
 	//侧栏css代码
-	var sidecss = "#wx-sideBar{padding: 0px 30px 30px 30px;}.wx-main a{text-align: center;color: #373737;}.wx-ptag{width: 100%;height: 100%;text-align: center;color: #20B2AA;font-weight: 600px;font-size:16px;}.wx-a a:hover{border: 1px solid #48D1CC;color: red !important;}.wx-click{color:red!important;background: #DCDCDC;border: 1px solid #48D1CC;}";
+	var sidecss = "#wx-sideBar{padding: 0px 10px 30px 10px;}.wx-main a{text-align: center;color: #373737;}.wx-ptag{width: 100%;height: 100%;text-align: center;color: #20B2AA;font-weight: 600px;font-size:16px;}.wx-a a:hover{border: 1px solid #48D1CC;color: red !important;}.wx-click{color:red!important;background: #DCDCDC;border: 1px solid #48D1CC;}";
 	//添加css侧栏文件
 	$('<style>').html(sidecss).appendTo($('head'));
 

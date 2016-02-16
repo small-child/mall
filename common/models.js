@@ -112,7 +112,8 @@ module.exports = {
         file1:{ type: String },
         remarks:{ type: String },
         date:{ type: Date },
-        email:{ type: String }
+        email:{ type: String },
+        role:{type:Number,default:0}
     },sell_attention:{//买家关注
         uid:{ type: String },
         sell_id:{ type: String }
@@ -121,10 +122,12 @@ module.exports = {
         buyer_id:{ type: String },
         seller_id:{ type: String },
         goods_kind:{ type: String },
+        goods_rank:{ type: String },
         sell_company:{ type: String },
         buy_company:{ type: String },
         volume:{ type: Number },
         unit_price:{ type: Number },
+        sum:{ type: Number },
         unit_price1:{ type: Number,default:0 },
         volume1:{ type: Number,default:0 },
         unit_price2:{ type: Number,default:0 },
@@ -133,6 +136,7 @@ module.exports = {
         role:{ type: Number },   //0为buy_release，1为sell_release
         remarks:{ type: String },
         over:{ type: Number,default:0 },//0为未完成，1为订单已经完成，即作为合同
+        order_time:{ type: Date },
         order_date:{ type: Date }
     },contract:{
         buyCompany:{ type: String },

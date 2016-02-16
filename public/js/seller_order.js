@@ -35,12 +35,13 @@ $(function() {
 
     	/*页面加载时，获取到信息*/
 	    $.get("/seller_order_data", function(data){
-	    	// console.log(data[0])
+	    	console.log(data[0])
 	        var str = "";
 	        for (var i = 0; i < data.length; i++) {
 	            var date = new Date(data[i].order_date).Format("yyyy-MM-dd-hh-mm");
 	            str += "<td>"+data[i]._id+"</td>";     
 	            str += "<td>"+data[i].goods_kind+"</td>";
+	            str += "<td>"+data[i].goods_rank+"</td>";
 	            str += "<td>"+data[i].buy_company+"</td>";
 	            str += "<td>"+date+"</td>";
 	            str += "<td>"+data[i].order_status+"</td>";
@@ -66,6 +67,7 @@ $(function() {
 			            var date = new Date(data[i].order_date).Format("yyyy-MM-dd-hh-mm");
 			            str += "<td>"+data[i]._id+"</td>";     
 			            str += "<td>"+data[i].goods_kind+"</td>";
+			            str += "<td>"+data[i].goods_rank+"</td>";
 			            str += "<td>"+data[i].buy_company+"</td>";
 			            str += "<td>"+date+"</td>";
 			            str += "<td>"+data[i].order_status+"</td>";
